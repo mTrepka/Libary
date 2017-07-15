@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 @Service("userService")
 public class UserServiceImpl implements UserService{
 	@Autowired
-	DataSource dataSource;
+	private DataSource dataSource;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -59,4 +59,8 @@ public class UserServiceImpl implements UserService{
 		userRepository.save(user);
 	}
 
+	@Override
+	public void editAndSave(User user) {
+		userRepository.save(user);
+	}
 }

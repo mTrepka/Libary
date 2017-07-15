@@ -22,7 +22,6 @@ public class User {
 
 	@Id
 	@Column(name = "cardnumber")
-	@NotEmpty
 	private String cardnumber;
 	@Column(name = "password")
 	@Transient

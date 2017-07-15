@@ -22,23 +22,27 @@ import java.util.Set;
 @Controller
 public class MainController {
     @Autowired
-    BookService bookService;
+    private BookService bookService;
     @Autowired
-    UserService userService;
+    private UserService userService;
 //    @RequestMapping(value = "/",method = RequestMethod.GET)
 //    public  ModelAndView getIndex(){
 //        ModelAndView modelAndView = new ModelAndView("");
 //        return modelAndView;
 //    }
+    private static String role(){
+        String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
+        if(role.equals("[ADMIN]")){
+            return"ADMIN";
+        }else if(role.equals("[USER]")){
+            return "USER";
+        }
+        return null;
+    }
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public  ModelAndView getIndex(){
         ModelAndView modelAndView = new ModelAndView("index");
-        String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
-        if(role.equals("[ADMIN]")){
-            modelAndView.addObject("userRole","ADMIN");
-        }else if(role.equals("[USER]")){
-            modelAndView.addObject("userRole","USER");
-        }
+        modelAndView.addObject("userRole",role());
         Set<Role> roles = userService.findAllUsers().get(1).getRoles();
         System.out.println();
         return modelAndView;
@@ -49,6 +53,7 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView("book");
         modelAndView.addObject("bookList",bookService.getAllBooks());
         modelAndView.addObject("user",user);
+        modelAndView.addObject("userRole",role());
         return modelAndView;
     }
     @RequestMapping(value = "/book/{bookId}",method = RequestMethod.GET)
@@ -56,16 +61,19 @@ public class MainController {
         System.out.println(bookId);
         ModelAndView modelAndView = new ModelAndView("selectbook");
         modelAndView.addObject("currentBook",bookService.getById(bookId));
+        modelAndView.addObject("userRole",role());
         return modelAndView;
     }
     @RequestMapping(value = "contact",method = RequestMethod.GET)
     public ModelAndView getContact(){
         ModelAndView modelAndView = new ModelAndView("contact");
+        modelAndView.addObject("userRole",role());
         return modelAndView;
     }
     @RequestMapping(value = "/admin/users/",method = RequestMethod.GET)
         public  ModelAndView getAdminUsers(){
         ModelAndView modelAndView = new ModelAndView("adminUsers");
+        modelAndView.addObject("userRole",role());
         modelAndView.addObject("userList",userService.findAllUsers());
         return modelAndView;
     }
@@ -73,27 +81,49 @@ public class MainController {
     public  ModelAndView removeAdminUsers(@PathVariable("cardnumber") String cardnumber){
         userService.removeUserByCardnumber(cardnumber);
         ModelAndView modelAndView = new ModelAndView("adminUsers");
+        modelAndView.addObject("userRole",role());
         modelAndView.addObject("userList",userService.findAllUsers());
         return modelAndView;
     }
         @RequestMapping(value = "/admin/users/add",method = RequestMethod.GET)
     public  ModelAndView getAdminUsersAdd(){
         ModelAndView modelAndView = new ModelAndView("adminUsersAdd");
+            modelAndView.addObject("userRole",role());
         User user = new User();
         modelAndView.addObject("user",user);
             modelAndView.addObject("number",String.class);
         return modelAndView;
     }
-    @RequestMapping(value = "/admin/users/edit",method = RequestMethod.POST)
-    public  ModelAndView getAdminUsersEdit(@Valid User user){
+    @RequestMapping(value = "/admin/users/edit/{user}",method = RequestMethod.GET)
+    public  ModelAndView getAdminUsersEdit(@PathVariable("user") String cardnumber){
         ModelAndView modelAndView = new ModelAndView("adminUsersEdit");
-        User userExist= userService.findUserByCardnumber(user.getCardnumber());
-        if(userExist==null){
-            userService.saveUser(user);
+        modelAndView.addObject("userRole",role());
+        User user = userService.findUserByCardnumber(cardnumber);
+        if(user==null){
+            modelAndView.addObject("exist",false);
         }else {
-            System.out.println("brak");
+            modelAndView.addObject("exist",true);
+            modelAndView.addObject("user",user);
+            System.out.println(user.toString());
         }
-        modelAndView.addObject("user",new User());
+        return modelAndView;
+    }
+    @RequestMapping(value = "/admin/users/edit/{path}",method = RequestMethod.POST)
+    public  ModelAndView postAdminUsersEdit(@Valid User user,@PathVariable("path") String path){
+        ModelAndView modelAndView = new ModelAndView("adminUsersEdit");
+        modelAndView.addObject("userRole",role());
+        User existingUser = userService.findUserByCardnumber(path);
+        existingUser.setName(user.getName());
+        existingUser.setLastName(user.getLastName());
+        existingUser.setActive(user.getActive());
+        userService.editAndSave(existingUser);
+        // SET CORRECT MODEL AND VIEW
+        return modelAndView;
+    }
+        @RequestMapping(value = "/admin/book/",method = RequestMethod.GET)
+    public  ModelAndView getAdminallBook(){
+        ModelAndView modelAndView = new ModelAndView("adminAllBook");
+        modelAndView.addObject("bookList",bookService.getAllBooks());
         return modelAndView;
     }
 }

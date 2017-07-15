@@ -6,8 +6,9 @@ import mTrepka.libary.domain.User;
 import java.util.List;
 
 public interface UserService {
-	public User findUserByCardnumber(String cardnumber);
-	public void saveUser(User user);
-	public List<User> findAllUsers();
-	public void removeUserByCardnumber(String cardnumber);
+	 User findUserByCardnumber(String cardnumber);
+	 void saveUser(User user);
+	 List<User> findAllUsers();
+	 void removeUserByCardnumber(String cardnumber);
+	 void editAndSave(User user);
 }
