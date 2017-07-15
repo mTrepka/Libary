@@ -1,0 +1,31 @@
+            body{
+            background:#A9F0F9;
+            }
+            nav{
+            height:auto;
+            width:15vw;
+                margin-left:2%;
+            margin-right:auto;
+ float:left;
+                    border:1px solid black;
+            border-radius:5px;
+                    background:white;
+            }
+
+            section{
+            width:60vw;
+            margin-left:auto;
+            margin-right:auto;
+            height:auto;
+
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:5%;
+
+            background:white;
+
+            border:1px solid black;
+            border-radius:5px;
+            }
+            .textRight{
+            text-align:right}

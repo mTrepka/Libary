@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<nav>
+
+</nav>
+<section>
+    <table>
+        <tr>
+            <td>Numer Karty</td>
+            <td>Imie</td>
+            <td>Nazwisko</td>
+            <td>Aktywny</td>
+            <td>Uprawnienia</td>
+            <td>Resetuj haslo</td>
+            <td>Opcje</td>
+        </tr>
+        <tr th:each="current, stat :${userList}">
+            <td th:text="${current.cardnumber}">aha</td>
+            <td th:text="${current.name}">aha</td>
+            <td th:text="${current.lastName}">ha</td>
+            <td th:text="${current.active}">ha</td>
+            <td>
+                <div th:each="role, stat :${current.roles}">
+                    <div th:text="${role.role}"></div>
+                </div>
+            </td>
+            <td>Reset</td>
+                <td><a th:href="${current.cardnumber}"><img th:src="@{/images/remove.jpg}" width="16px"/></a>
+                <img th:src="@{/images/edit.png}" width="16px"/></td>
+        </tr>
+    </table>
+</section>
+</body>
+
+</HTML>
