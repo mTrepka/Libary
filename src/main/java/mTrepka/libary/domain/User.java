@@ -2,16 +2,7 @@ package mTrepka.libary.domain;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Transient;
@@ -37,6 +28,18 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="borrow_book",catalog = "libary", joinColumns = {
+			@JoinColumn(name="cardnumber")},inverseJoinColumns = {@JoinColumn(name="bookid")})
+	Set<Book> books;
+
+	public Set<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(Set<Book> books) {
+		this.books = books;
+	}
 
 	@Override
 	public String toString() {
