@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="">
+    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="Make relation ManyToMany borrowed books">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +18,8 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="153">
+              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding>
                 <element signature="e#975#976#0" expanded="true" />
                 <element signature="e#994#995#0" expanded="true" />
@@ -749,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500158834444</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Make relation ManyToMany borrowed books">
+      <created>1500228960001</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1500228960001</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -807,7 +813,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New pages mapped" />
-    <option name="LAST_COMMIT_MESSAGE" value="New pages mapped" />
+    <MESSAGE value="Make relation ManyToMany borrowed books" />
+    <option name="LAST_COMMIT_MESSAGE" value="Make relation ManyToMany borrowed books" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1024,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        <state relative-caret-position="153">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
           <folding>
             <element signature="e#975#976#0" expanded="true" />
             <element signature="e#994#995#0" expanded="true" />

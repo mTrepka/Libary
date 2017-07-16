@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
+
+</head>
+<body>
+<nav>
+    <h1>Menu</h1>
+    <ul>
+        <li>Index</li>
+        <li><a href="../book/">Książki</a></li>
+        <li>index</li>
+        <li>index</li>
+        <li><a href="../contact">Kontakot</a> </li>
+    </ul>
+    <h1>Panel Użytkownika</h1>
+    <p th:text="${user}"/>
+</nav>
+<section>
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Nazwa</td>
+            <td>Autor</td>
+        </tr>
+        <tr th:each="currentBook, stat :${bookList}">
+            <td th:text="${currentBook.id}">aha</td>
+            <td th:text="${currentBook.name}">aha</td>
+            <td th:text="${currentBook.author}">aha</td>
+            <td><a th:href="${currentBook.id}"><img th:src="@{/images/remove.jpg}" width="16px"/></a>
+                <a th:href="@{'edit/'+ ${currentBook.id}}"><img th:src="@{/images/edit.png}" width="16px"/></a>
+            </td>
+        </tr>
+    </table>
+</section>
+</body>
+
+</HTML>
