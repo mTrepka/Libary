@@ -126,4 +126,26 @@ public class MainController {
         modelAndView.addObject("bookList",bookService.getAllBooks());
         return modelAndView;
     }
+        @RequestMapping(value = "/user/settings",method = RequestMethod.GET)
+    public  ModelAndView getUserSettings(){
+        ModelAndView modelAndView = new ModelAndView("userSettings");
+        User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
+        modelAndView.addObject("user",user);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/user/settings",method = RequestMethod.POST)
+    public  ModelAndView postUserSettings(@Valid User user){
+        ModelAndView modelAndView = new ModelAndView("userSettings");
+        User existingUser = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
+        user.setActive(1);
+        user.setCardnumber(existingUser.getCardnumber());
+        user.setRoles(existingUser.getRoles());
+        if(user.getPassword()==""){
+            user.setPassword(existingUser.getPassword());
+        }
+        userService.editAndSave(user);
+        System.out.println(user);
+        modelAndView.addObject("user",user);
+        return modelAndView;
+    }
 }

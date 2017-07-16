@@ -1,0 +1,22 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
+
+</head>
+<body>
+<nav>
+</nav>
+<section>
+        <form  action="#" method="post" th:object="${user}" role="form" >
+            <input type="text"  placeholder="Name"  th:field="*{name}" required="required"/><br/>
+            <input type="text"  placeholder="Nazwisko"  th:field="*{lastName}" required="required"/><br/>
+            <input type="password"  placeholder="Password"  th:field="*{password}"/><br/>
+            <button type="submit" >Zmień</button>
+        </form>
+</section>
+</body>
+
+</html>
