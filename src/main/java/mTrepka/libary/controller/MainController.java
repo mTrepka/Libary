@@ -44,7 +44,6 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("userRole",role());
         Set<Role> roles = userService.findAllUsers().get(1).getRoles();
-        System.out.println();
         return modelAndView;
     }
     @RequestMapping(value = "/book/",method = RequestMethod.GET)
@@ -130,6 +129,7 @@ public class MainController {
     public  ModelAndView getUserSettings(){
         ModelAndView modelAndView = new ModelAndView("userSettings");
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
+            System.out.println(user.toString());
         modelAndView.addObject("user",user);
         return modelAndView;
     }

@@ -1,6 +1,7 @@
 package mTrepka.libary.service;
 
 import mTrepka.libary.domain.Book;
+import mTrepka.libary.domain.User;
 import mTrepka.libary.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.List;
 @Service("bookService")
 public class BookServiceImpl implements BookService{
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     @Override
     public List<Book> getAllBooks() {
@@ -23,5 +24,10 @@ public class BookServiceImpl implements BookService{
     @Override
     public Book getById(long id) {
         return bookRepository.findById(id);
+    }
+
+    @Override
+    public List<Book> findByOwnerid(User ownerid) {
+        return bookRepository.findByOwnerid(ownerid);
     }
 }

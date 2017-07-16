@@ -28,18 +28,8 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name="borrow_book",catalog = "libary", joinColumns = {
-			@JoinColumn(name="cardnumber")},inverseJoinColumns = {@JoinColumn(name="bookid")})
-	Set<Book> books;
-
-	public Set<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(Set<Book> books) {
-		this.books = books;
-	}
+	@OneToMany(mappedBy = "ownerid")
+	private Set<Book> books;
 
 	@Override
 	public String toString() {
@@ -50,7 +40,27 @@ public class User {
 				", lastName='" + lastName + '\'' +
 				", active=" + active +
 				", roles=" + roles +
+				", books=" + books +
+				", borrowHistory=" + borrowHistory +
 				'}';
+	}
+
+	public Set<BorrowHistory> getBorrowHistory() {
+		return borrowHistory;
+	}
+
+	public void setBorrowHistory(Set<BorrowHistory> borrowHistory) {
+		this.borrowHistory = borrowHistory;
+	}
+
+	@OneToMany(mappedBy = "userborrow")
+	private Set<BorrowHistory> borrowHistory;
+	public Set<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(Set<Book> books) {
+		this.books = books;
 	}
 
 	public String getCardnumber() {

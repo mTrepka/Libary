@@ -1,9 +1,7 @@
 package mTrepka.libary.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by Mario on 2017-07-10.
@@ -18,6 +16,40 @@ public class Book {
     private String author;
     private String description;
     private long year;
+    @ManyToOne
+    @JoinColumn(name = "ownerid")
+    private User ownerid;
+    @OneToMany(mappedBy = "bookborrow")
+    private Set<BorrowHistory> bookborrow;
+
+    public User getOwnerid() {
+        return ownerid;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", year=" + year +
+                ", ownerid=" + ownerid +
+                ", bookborrow=" + bookborrow +
+                '}';
+    }
+
+    public Set<BorrowHistory> getBookborrow() {
+        return bookborrow;
+    }
+
+    public void setBookborrow(Set<BorrowHistory> bookborrow) {
+        this.bookborrow = bookborrow;
+    }
+
+    public void setOwnerid(User owner) {
+        this.ownerid = owner;
+    }
 
     public long getId() {
         return id;
