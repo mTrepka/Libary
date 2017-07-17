@@ -1,6 +1,8 @@
 package mTrepka.libary.controller;
 
 import com.sun.org.apache.regexp.internal.RE;
+import mTrepka.libary.domain.Book;
+import mTrepka.libary.domain.BorrowHistory;
 import mTrepka.libary.domain.Role;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.service.BookService;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -144,8 +148,24 @@ public class MainController {
             user.setPassword(existingUser.getPassword());
         }
         userService.editAndSave(user);
-        System.out.println(user);
         modelAndView.addObject("user",user);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/user/books",method = RequestMethod.GET)
+    public  ModelAndView getUserBooks(){
+        ModelAndView modelAndView = new ModelAndView("userBook");
+        User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
+        List<Book> bookList = user.getBooks();
+        modelAndView.addObject("bookList",bookList);
+        return modelAndView;
+    }
+    @RequestMapping(value = "/user/history",method = RequestMethod.GET)
+    public  ModelAndView getUserHistory(){
+        ModelAndView modelAndView = new ModelAndView("userHistory");
+        User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
+        List<BorrowHistory> borrowHistories = user.getBorrowHistory();
+        System.out.println(borrowHistories.toString());
+        modelAndView.addObject("borrowHistoryList",borrowHistories);
         return modelAndView;
     }
 }

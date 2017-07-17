@@ -16,15 +16,17 @@ public class BorrowHistory {
     @ManyToOne
     @JoinColumn(name = "userborrow")
     private User userborrow;
-
+    @ManyToOne
+    @JoinColumn(name = "bookborrow")
+    private Book bookborrow;
     @Override
     public String toString() {
         return "BorrowHistory{" +
                 "id=" + id +
                 ", borrow_date=" + borrow_date +
                 ", return_date=" + return_date +
-                ", userborrow=" + userborrow +
-                ", bookborrow=" + bookborrow +
+                ", userborrow=" + userborrow.getCardnumber() +
+                ", bookborrow=" + bookborrow.getId() +
                 '}';
     }
 
@@ -36,9 +38,7 @@ public class BorrowHistory {
         this.bookborrow = bookborrow;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "bookborrow")
-    private Book bookborrow;
+
 
     public User getUserborrow() {
         return userborrow;

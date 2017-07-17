@@ -1,6 +1,7 @@
 package mTrepka.libary.domain;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,10 +21,18 @@ public class Book {
     @JoinColumn(name = "ownerid")
     private User ownerid;
     @OneToMany(mappedBy = "bookborrow")
-    private Set<BorrowHistory> bookborrow;
-
+    private List<BorrowHistory> bookborrow;
+    private String currentBorrowId;
     public User getOwnerid() {
         return ownerid;
+    }
+
+    public String getCurrentBorrowId() {
+        return currentBorrowId;
+    }
+
+    public void setCurrentBorrowId(String currentBorrowId) {
+        this.currentBorrowId = currentBorrowId;
     }
 
     @Override
@@ -34,16 +43,15 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +
                 ", year=" + year +
-                ", ownerid=" + ownerid +
-                ", bookborrow=" + bookborrow +
+                ", ownerid=" + ownerid.getCardnumber() +
                 '}';
     }
 
-    public Set<BorrowHistory> getBookborrow() {
+    public List<BorrowHistory> getBookborrow() {
         return bookborrow;
     }
 
-    public void setBookborrow(Set<BorrowHistory> bookborrow) {
+    public void setBookborrow(List<BorrowHistory> bookborrow) {
         this.bookborrow = bookborrow;
     }
 

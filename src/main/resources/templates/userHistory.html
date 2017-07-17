@@ -1,0 +1,31 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
+
+</head>
+<body>
+<nav>
+</nav>
+<section>
+    <table>
+        <tr>
+            <td>Nazwa ksiązki</td>
+            <td>Data wypożyczenia</td>
+            <td>Data oddania</td>
+            <td>Numer id ksiązki</td>
+    </tr>
+        <tr th:each="currentHistory, stat :${borrowHistoryList}">
+            <td th:text="${currentHistory.bookborrow.name}"></td>
+            <td th:text="${currentHistory.borrow_date}"></td>
+            <td th:text="${currentHistory.return_date}"></td>
+            <td th:text="${currentHistory.bookborrow.id}"></td>
+        </tr>
+    </table>
+
+</section>
+</body>
+
+</html>

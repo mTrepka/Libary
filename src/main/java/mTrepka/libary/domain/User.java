@@ -1,5 +1,6 @@
 package mTrepka.libary.domain;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -29,7 +30,9 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 	@OneToMany(mappedBy = "ownerid")
-	private Set<Book> books;
+	private List<Book> books;
+	@OneToMany(mappedBy = "userborrow")
+	private List<BorrowHistory> borrowHistory;
 
 	@Override
 	public String toString() {
@@ -45,21 +48,20 @@ public class User {
 				'}';
 	}
 
-	public Set<BorrowHistory> getBorrowHistory() {
+	public List<BorrowHistory> getBorrowHistory() {
 		return borrowHistory;
 	}
 
-	public void setBorrowHistory(Set<BorrowHistory> borrowHistory) {
+	public void setBorrowHistory(List<BorrowHistory> borrowHistory) {
 		this.borrowHistory = borrowHistory;
 	}
 
-	@OneToMany(mappedBy = "userborrow")
-	private Set<BorrowHistory> borrowHistory;
-	public Set<Book> getBooks() {
+
+	public List<Book> getBooks() {
 		return books;
 	}
 
-	public void setBooks(Set<Book> books) {
+	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
 
