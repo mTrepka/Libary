@@ -16,4 +16,8 @@ public interface BookRepository extends JpaRepository<Book,Long>{
     List<Book> findAll();
     Book findById(long id);
     List<Book> findByOwnerid(User owner);
+    @Query("SELECT u FROM book u WHERE u.currentBorrowId = null")
+    List<Book> findFreeBook();
+    @Query("SELECT u FROM book u WHERE u.currentBorrowId != null")
+    List<Book> findBorrowBook();
 }

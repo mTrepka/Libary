@@ -6,6 +6,7 @@ import mTrepka.libary.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -29,5 +30,25 @@ public class BookServiceImpl implements BookService{
     @Override
     public List<Book> findByOwnerid(User ownerid) {
         return bookRepository.findByOwnerid(ownerid);
+    }
+
+    @Override
+    public void saveBook(Book book) {
+        bookRepository.save(book);
+    }
+
+    @Override
+    public List<Book> findAllFreeBook() {
+        return bookRepository.findFreeBook();
+    }
+
+    @Override
+    public List<Book> findAllBorrowBook() {
+        return bookRepository.findBorrowBook();
+    }
+
+    @Override
+    public void removeBook(Book book) {
+        bookRepository.delete(book);
     }
 }

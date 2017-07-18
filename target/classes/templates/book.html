@@ -9,16 +9,48 @@
 </head>
 <body>
 <nav>
-    <h1>Menu</h1>
+    <h2>Menu</h2>
     <ul>
         <li>Index</li>
         <li><a href="../book/">Książki</a></li>
-        <li>index</li>
-        <li>index</li>
-        <li><a href="../contact">Kontakot</a> </li>
+        <li><a href="../contact">Kontakt</a></li>
     </ul>
-    <h1>Panel Użytkownika</h1>
-    <p th:text="${user}"/>
+    <div th:switch="${userRole}">
+        <div th:case="'USER'">
+            <h2>Panel Użytkownika</h2>
+            <ul>
+                <li><a href="../user/books">Moje Wypożyczenia</a></li>
+                <li><a href="../user/history">Historia Wypożyczeń</a></li>
+                <li><a href="../user/settings">Ustawienia</a></li>
+                <li><a href="../logout">Wyloguj</a></li>
+            </ul>
+        </div>
+        <div th:case="'ADMIN'">
+            <h2>Panel Administracyjny</h2>
+            <ul>
+                Użytkownicy
+                <li><a href="../admin/users/">Wyświetl Wszystkich</a></li>
+                <li><a href="../admin/users/add">Dodaj użytkownika</a></li>
+                <li><a href="../admin/users/edit/">Edytuj użytkowników</a></li>
+                Książki
+                <li><a href="../admin/book/">Wyswietlij Wszystkie</a></li>
+                <li><a href="../admin/book/add">Dodaj książke</a></li>
+                <li><a href="../admin/book/edit/">Edytuj książke</a></li>
+                <li><a href="../admin/book/lend">Pokaż wypożyczone</a></li>
+                <br/>
+                <li><a href="../logout">Wyloguj</a></li>
+            </ul>
+        </div>
+        <div th:case="*">
+            <form th:action="@{/login}" method="POST" >
+                <input type="text" name="cardnumber"  th:placeholder="CardNumber"
+                /> <br/>
+                <input type="password"  th:placeholder="Password"
+                       name="password"  /> <br />
+                <input type="Submit" value="submit"/>
+            </form>
+        </div>
+    </div>
 </nav>
 <section>
     <div class="container" th:each="currentBook, stat :${bookList}">
@@ -33,11 +65,9 @@
                 przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</p>
         </div>
         <div class="right">
-            <h3>Stan</h3>
             <p>Wypożycz</p>
-            <p>Nie można wypożyczyc brak książek</p>
             <div class="textRight">
-                <a th:href="${currentBook.id}" th:text="Przejdz"/>
+                <a th:href="${currentBook.id}" th:text="Przejdz" class="bold"/>
             </div>
         </div>
     </div>

@@ -49,13 +49,30 @@
     </div>
 </nav>
 <section>
-<form th:action="@{/admin/users/add}" action="#" method="post" th:object="${user}"  role="form">
-    <h2 th:if="${error}">Istnieje użytkownik o takim numerze karty!</h2>
-<input type="text" th:field="*{cardnumber}" placeholder="Numer Karty" /><br/>
-<input type="text" th:field="*{name}" placeholder="Imie" /><br/>
-<input type="text" th:field="*{lastName}" placeholder="Nazwisko" /><br/>
-    <button type="submit" >Dodaj</button>
-</form>
+    <table>
+        <tr>
+            <td>Id ksiązki</td>
+            <td>Tytuł</td>
+            <td>Autor</td>
+            <td>Data wypożyczenia</td>
+            <td>Numer Karty</td>
+        </tr>
+        <tr th:each="currentBook, stat :${bookList}">
+            <div class="left">
+                <td th:text="${currentBook.id}"></td>
+                <td th:text="${currentBook.name}">Tytul</td>
+                <td th:text="${currentBook.author}">Autor</td>
+                <div th:each="currentBorrow, stat :${currentBook.bookborrow}">
+                    <div th:switch="${currentBorrow.id}">
+                        <div th:case="${currentBook.currentBorrowId}">
+                            <td th:text="${currentBorrow.borrow_date}"></td>
+                            <td th:text="${currentBorrow.userborrow.cardnumber}"></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tr>
+    </table>
 </section>
 </body>
 

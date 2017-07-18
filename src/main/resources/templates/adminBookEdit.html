@@ -49,18 +49,14 @@
     </div>
 </nav>
 <section>
-<div th:switch="${exist}">
-    <div th:case="true">
-    <form  action="#" method="post" th:object="${user}" role="form" >
-        <label>ID</label><label th:text="${user.cardnumber}" th:field="*{cardnumber}"></label><br/>
-        <input type="text"  placeholder="Name"  th:field="*{name}" required="required"/><br/>
-        <input type="text"  placeholder="Nazwisko"  th:field="*{lastName}" required="required"/><br/>
-        <input type="text"  placeholder="Aktywny"  th:field="*{active}" required="required"/><br/>
+    <form  action="#" method="post" th:object="${book}" role="form" >
+        <label>ID</label><label th:text="${book.id}"></label><br/>
+        <input type="text"  placeholder="Autor"  th:field="*{author}" required="required"/><br/>
+        <input type="text"  placeholder="Nazwa"  th:field="*{name}" required="required"/><br/>
+        <input type="text"  placeholder="Opis"  th:field="*{description}" required="required"/><br/>
+        <input type="text"  placeholder="Rok"  th:field="*{year}" required="required"/><br/>
         <button type="submit" >Zmień</button>
-    </form></div>
-    <div th:case="false"><h1 class="noExist">Użytkownik nie istnieje!</h1></div>
-
-</div>
+    </form>
 </section>
 </body>
 

@@ -49,12 +49,10 @@
     </div>
 </nav>
 <section>
-<form th:action="@{/admin/users/add}" action="#" method="post" th:object="${user}"  role="form">
-    <h2 th:if="${error}">Istnieje użytkownik o takim numerze karty!</h2>
-<input type="text" th:field="*{cardnumber}" placeholder="Numer Karty" /><br/>
-<input type="text" th:field="*{name}" placeholder="Imie" /><br/>
-<input type="text" th:field="*{lastName}" placeholder="Nazwisko" /><br/>
-    <button type="submit" >Dodaj</button>
+    <h1 th:text="${error}"/>
+<form method="post"  th:object="${string}" >
+<input type="text" th:field="${string.string}"/>
+    <input type="submit" value="Szukaj"/>
 </form>
 </section>
 </body>

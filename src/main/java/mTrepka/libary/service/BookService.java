@@ -12,4 +12,8 @@ public interface BookService {
     public List<Book> getAllBooks();
     public Book getById(long id);
     List<Book> findByOwnerid(User owner);
+    void saveBook(Book book);
+    List<Book> findAllFreeBook();
+    List<Book> findAllBorrowBook();
+    void removeBook(Book book);
 }

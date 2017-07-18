@@ -49,18 +49,11 @@
     </div>
 </nav>
 <section>
-<div th:switch="${exist}">
-    <div th:case="true">
-    <form  action="#" method="post" th:object="${user}" role="form" >
-        <label>ID</label><label th:text="${user.cardnumber}" th:field="*{cardnumber}"></label><br/>
-        <input type="text"  placeholder="Name"  th:field="*{name}" required="required"/><br/>
-        <input type="text"  placeholder="Nazwisko"  th:field="*{lastName}" required="required"/><br/>
-        <input type="text"  placeholder="Aktywny"  th:field="*{active}" required="required"/><br/>
-        <button type="submit" >Zmień</button>
-    </form></div>
-    <div th:case="false"><h1 class="noExist">Użytkownik nie istnieje!</h1></div>
-
-</div>
+    <h1 th:text="${error}"/>
+<form method="post"  th:object="${string}" >
+<input type="text" th:field="${string.string}"/>
+    <input type="submit" value="Szukaj"/>
+</form>
 </section>
 </body>
 

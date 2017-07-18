@@ -24,7 +24,16 @@ dupa
                 przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</p>
         </div>
         <div class="right">
-            <h3>Stan</h3>
+            <h3>Wypożycz</h3>
+            <div th:switch="${userRole}">
+                <div th:case="'USER'">
+                        <a th:href="@{'/borrow/' + ${currentBook.id}}" th:text="Klik"/>
+                </div>
+
+                <div th:case="*">
+                    <h2>Musisz sie zalogować!</h2>
+                </div>
+            </div>
         </div>
     </div>
 </section>

@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by Mario on 2017-07-10.
  */
-@Entity
+@Entity(name = "book")
 public class Book {
     @Id
     @GeneratedValue
@@ -42,9 +42,7 @@ public class Book {
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +
-                ", year=" + year +
-                ", ownerid=" + ownerid.getCardnumber() +
-                '}';
+                ", year=" + year;
     }
 
     public List<BorrowHistory> getBookborrow() {

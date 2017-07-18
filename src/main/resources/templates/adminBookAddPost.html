@@ -2,6 +2,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
+    <meta http-equiv="Refresh" content="5; url=#" />
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
 
@@ -49,13 +50,7 @@
     </div>
 </nav>
 <section>
-<form th:action="@{/admin/users/add}" action="#" method="post" th:object="${user}"  role="form">
-    <h2 th:if="${error}">Istnieje użytkownik o takim numerze karty!</h2>
-<input type="text" th:field="*{cardnumber}" placeholder="Numer Karty" /><br/>
-<input type="text" th:field="*{name}" placeholder="Imie" /><br/>
-<input type="text" th:field="*{lastName}" placeholder="Nazwisko" /><br/>
-    <button type="submit" >Dodaj</button>
-</form>
+Dodano
 </section>
 </body>
 
