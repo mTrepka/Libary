@@ -1,0 +1,79 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
+
+</head>
+<body>
+<nav>
+    <h2>Menu</h2>
+    <ul>
+        <li>Index</li>
+        <li><a href="../../book/">Książki</a></li>
+        <li><a href="../../contact">Kontakt</a></li>
+    </ul>
+    <div th:switch="${userRole}">
+        <div th:case="'USER'">
+            <h2>Panel Użytkownika</h2>
+            <ul>
+                <li><a href="../../user/books">Moje Wypożyczenia</a></li>
+                <li><a href="../../user/hisotry">Historia Wypożyczeń</a></li>
+                <li><a href="../../user/settings">Ustawienia</a></li>
+            </ul>
+        </div>
+        <div th:case="'ADMIN'">
+            <h2>Panel Administracyjny</h2>
+            <ul>
+                Użytkownicy
+                <li><a href="../../admin/users/">Wyświetl Wszystkich</a></li>
+                <li><a href="../../admin/users/add">Dodaj użytkownika</a></li>
+                <li><a href="../../admin/users/edit/">Edytuj użytkowników</a></li>
+                Książki
+                <li><a href="../../admin/book/">Wyswietlij Wszystkie</a></li>
+                <li><a href="../../admin/book/add">Dodaj książke</a></li>
+                <li><a href="../../admin/book/edit/">Edytuj książke</a></li>
+                <li><a href="../../admin/book/lend">Pokaż wypożyczone</a></li>
+            </ul>
+        </div>
+        <div th:case="*">
+            <form th:action="@{/login}" method="POST" >
+                <input type="text" name="cardnumber"  th:placeholder="CardNumber"
+                /> <br/>
+                <input type="password"  th:placeholder="Password"
+                       name="password"  /> <br />
+                <input type="Submit" value="submit"/>
+            </form>
+        </div>
+    </div>
+</nav>
+<section>
+    <table>
+        <tr>
+            <td>Id ksiązki</td>
+            <td>Tytuł</td>
+            <td>Autor</td>
+            <td>Data wypożyczenia</td>
+            <td>Numer Karty</td>
+        </tr>
+        <tr th:each="currentBook, stat :${bookList}">
+            <div class="left">
+                <td th:text="${currentBook.id}"></td>
+                <td th:text="${currentBook.name}">Tytul</td>
+                <td th:text="${currentBook.author}">Autor</td>
+                <div th:each="currentBorrow, stat :${currentBook.bookborrow}">
+                    <div th:switch="${currentBorrow.id}">
+                        <div th:case="${currentBook.currentBorrowId}">
+                            <td th:text="${currentBorrow.borrow_date}"></td>
+                            <td th:text="${currentBorrow.userborrow.cardnumber}"></td>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </tr>
+    </table>
+</section>
+</body>
+
+</html>

@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="New class BeansConfiguration,&#10;add Bean logger for logging,&#10;Add 2 poincut for logging edited user and book">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java" />
+    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminAllBook.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminAllBook.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminUsers.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminUsers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersAdd.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminUsersAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/application.properties" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,8 +58,8 @@
       <file leaf-file-name="BeansConfiguration.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -900,7 +894,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500417037641</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="New class BeansConfiguration,&#10;add Bean logger for logging,&#10;Add 2 poincut for logging edited user and book">
+      <created>1500840966128</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1500840966128</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -945,7 +946,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1370,8 +1371,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="38" lean-forward="false" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
