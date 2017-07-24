@@ -5,9 +5,9 @@ import mTrepka.libary.service.BookService;
 import mTrepka.libary.service.BorrowHistoryService;
 import mTrepka.libary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -317,6 +317,21 @@ private final String LIBARY_NAME = "Sun - ";
         modelAndView.addObject("userRole", role());
         modelAndView.addObject("string", new SerString());
         modelAndView.addObject("error", "Brak Użytkownika o podanym id!");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/admin/users/active/{path}", method = RequestMethod.GET)
+    public ModelAndView postAdminUserActiveEdit(@PathVariable("path") String path) {
+        ModelAndView modelAndView = new ModelAndView("adminUserActive");
+        User user = userService.findUserByCardnumber(path);
+        if (user.getActive() == 1) {
+            user.setActive(0);
+            modelAndView.addObject("active", "Użytkownik został wyłączony");
+        } else {
+            user.setActive(1);
+            modelAndView.addObject("active", "Użytkownik został włączony");
+        }
+        userService.editAndSave(user);
         return modelAndView;
     }
 }

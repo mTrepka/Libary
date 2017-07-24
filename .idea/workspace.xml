@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="Add title variable in html and in class MainController">
+    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminAllBook.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminAllBook.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookAddPost.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminBookAddPost.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsersAdd.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsersAdd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsersEdit.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsersEdit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsersEditFind.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminUsersEditFind.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/book.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/book.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/borrowBook.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/borrowBook.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/contact.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/selectbook.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/selectbook.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/userBook.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/userBook.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/userHistory.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/userHistory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/userSettings.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/userSettings.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminAllBook.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminAllBook.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminBookAdd.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminBookAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminBookAddPost.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminBookAddPost.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminBookEdit.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminBookEdit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminBookEditFind.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminBookEditFind.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminBookLend.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminBookLend.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminBookRemove.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminBookRemove.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminUsers.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminUsers.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersAdd.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminUsersAdd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersEdit.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminUsersEdit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersEditFind.html" afterPath="$PROJECT_DIR$/target/classes/templates/adminUsersEditFind.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/book.html" afterPath="$PROJECT_DIR$/target/classes/templates/book.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/borrowBook.html" afterPath="$PROJECT_DIR$/target/classes/templates/borrowBook.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/contact.html" afterPath="$PROJECT_DIR$/target/classes/templates/contact.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/index.html" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/login.html" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/registration.html" afterPath="$PROJECT_DIR$/target/classes/templates/registration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/selectbook.html" afterPath="$PROJECT_DIR$/target/classes/templates/selectbook.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/userBook.html" afterPath="$PROJECT_DIR$/target/classes/templates/userBook.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/userHistory.html" afterPath="$PROJECT_DIR$/target/classes/templates/userHistory.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/userSettings.html" afterPath="$PROJECT_DIR$/target/classes/templates/userSettings.html" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="C:\Users\Mario\Desktop\Libary\.idea\shelf/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +45,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="221" column="81" lean-forward="true" selection-start-line="221" selection-start-column="81" selection-end-line="221" selection-end-column="81" />
+            <state relative-caret-position="436">
+              <caret line="332" column="42" lean-forward="false" selection-start-line="332" selection-start-column="42" selection-end-line="332" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,21 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminBookEdit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html">
+      <file leaf-file-name="adminUsers.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="816">
+              <caret line="66" column="51" lean-forward="true" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminBookLend.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html">
+      <file leaf-file-name="adminUserActive.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+            <state relative-caret-position="402">
+              <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -94,6 +97,8 @@
       <find>borrowBook</find>
       <find>remove</find>
       <find>modelAndView.addObject(&quot;userRole&quot;,role());</find>
+      <find>titl</find>
+      <find>getBook</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -111,7 +116,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" />
         <option value="$PROJECT_DIR$/html/blank.html" />
@@ -125,14 +129,12 @@
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/book.css" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/SerString.java" />
         <option value="$PROJECT_DIR$/../plan.txt" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
@@ -143,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsersAdd.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsersEdit.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsersEditFind.html" />
@@ -156,6 +157,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/userBook.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userHistory.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userSettings.html" />
+        <option value="$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" />
       </list>
     </option>
@@ -859,9 +865,9 @@
     <recent_temporary>
       <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Application.Application" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationTests.repositoryNotNull" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationTests.testNewBook" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationTests" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ApplicationTests" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ApplicationTests.repositoryNotNull" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ApplicationTests.testNewBook" />
       </list>
     </recent_temporary>
   </component>
@@ -935,23 +941,44 @@
       <option name="project" value="LOCAL" />
       <updated>1500840966128</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add title variable in html and in class MainController">
+      <created>1500926195216</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1500926195216</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add title variable in html and in class MainController">
+      <created>1500926834240</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1500926834240</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add title variable in html and in class MainController">
+      <created>1500928885711</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1500928885711</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ApplicationTests - 2017.07.20 at 21h 35m 44s.xml">
-      <configuration name="ApplicationTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationTests - 2017.07.20 at 21h 36m 15s.xml">
-      <configuration name="ApplicationTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationTests - 2017.07.20 at 21h 37m 14s.xml">
-      <configuration name="ApplicationTests" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ApplicationTests - 2017.07.20 at 21h 38m 03s.xml">
-      <configuration name="ApplicationTests" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ApplicationTests - 2017.07.20 at 21h 38m 33s.xml">
+      <configuration name="ApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationTests - 2017.07.24 at 22h 03m 11s.xml">
+      <configuration name="ApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationTests - 2017.07.24 at 22h 04m 03s.xml">
+      <configuration name="ApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationTests - 2017.07.24 at 22h 05m 13s.xml">
+      <configuration name="ApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ApplicationTests - 2017.07.24 at 22h 36m 34s.xml">
       <configuration name="ApplicationTests" configurationId="JUnit" />
     </history-entry>
     <history-entry file="ApplicationTests_repositoryNotNull - 2017.07.20 at 21h 43m 24s.xml">
@@ -981,6 +1008,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -999,12 +1027,12 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32575756" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32575756" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27771854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1055,14 +1083,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/blank.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../wykres.html" />
     <entry file="file://C:/xampp/htdocs/wykres.php" />
     <entry file="file://C:/xampp/htdocs/3/formularz.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1124,13 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="30" column="12" lean-forward="true" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1217,13 +1230,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding />
         </state>
       </provider>
@@ -1233,7 +1239,7 @@
         <state relative-caret-position="306">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1243,7 +1249,7 @@
         <state relative-caret-position="425">
           <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1264,14 +1270,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookAddPost.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1281,22 +1279,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
@@ -1368,14 +1350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/selectbook.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1408,29 +1382,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="221" column="81" lean-forward="true" selection-start-line="221" selection-start-column="81" selection-end-line="221" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1241">
+          <caret line="73" column="13" lean-forward="true" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html">
+    <entry file="file://$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="60" column="24" lean-forward="false" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+        <state relative-caret-position="450">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="66" lean-forward="false" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="47" lean-forward="true" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="52" column="21" lean-forward="false" selection-start-line="52" selection-start-column="21" selection-end-line="52" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="66" column="51" lean-forward="true" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="332" column="42" lean-forward="false" selection-start-line="332" selection-start-column="42" selection-end-line="332" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
