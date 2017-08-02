@@ -1,10 +1,10 @@
 package mTrepka.libary.test;
 
-import mTrepka.libary.domain.Book;
-import mTrepka.libary.domain.BorrowHistory;
+
 import mTrepka.libary.service.BookService;
 import mTrepka.libary.service.BorrowHistoryService;
 import mTrepka.libary.service.UserService;
+import mTrepka.libary.utility.NavigationBar;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +24,12 @@ public class ApplicationTests {
     private BookService bookService;
     @Autowired
     private BorrowHistoryService borrowHistoryService;
+    @Autowired
+    NavigationBar defaultNavigationBar;
+    @Autowired
+    NavigationBar userNavigatonBar;
+    @Autowired
+    NavigationBar adminNavigationBar;
     @Test
     public void repositoryNotNull(){
         assertThat(userService).isNotNull();

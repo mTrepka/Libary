@@ -4,7 +4,9 @@ import mTrepka.libary.domain.*;
 import mTrepka.libary.service.BookService;
 import mTrepka.libary.service.BorrowHistoryService;
 import mTrepka.libary.service.UserService;
+import mTrepka.libary.utility.NavigationBar;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -29,12 +31,28 @@ public class MainController {
     private UserService userService;
     @Autowired
     private BorrowHistoryService borrowHistoryService;
+    @Autowired
+    NavigationBar defaultNavigationBar;
+    @Autowired
+    NavigationBar userNavigatonBar;
+    @Autowired
+    NavigationBar adminNavigationBar;
 //    @RequestMapping(value = "/",method = RequestMethod.GET)
 //    public  ModelAndView getIndex(){
 //        ModelAndView modelAndView = new ModelAndView("");
 //        return modelAndView;
 //    }
 private final String LIBARY_NAME = "Sun - ";
+
+    private NavigationBar getNavigationWithRole() {
+        String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
+        if (role.equals("[ADMIN]")) {
+            return adminNavigationBar;
+        } else if (role.equals("[USER]")) {
+            return userNavigatonBar;
+        }
+        return defaultNavigationBar;
+    }
     private static String role(){
         String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
         if(role.equals("[ADMIN]")){
@@ -45,12 +63,21 @@ private final String LIBARY_NAME = "Sun - ";
         return null;
     }
 
+    private boolean loginFormRole() {
+        if (role() == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public  ModelAndView getIndex(){
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("title", LIBARY_NAME + "Strona Glówna");
-        modelAndView.addObject("userRole", role());
-        Set<Role> roles = userService.findAllUsers().get(1).getRoles();
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(0));
+        System.out.println(this.loginFormRole());
+        modelAndView.addObject("form", this.loginFormRole());
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString());
         return modelAndView;
     }
     @RequestMapping(value = "/book/",method = RequestMethod.GET)
@@ -58,32 +85,37 @@ private final String LIBARY_NAME = "Sun - ";
         String user = SecurityContextHolder.getContext().getAuthentication().getName();
         ModelAndView modelAndView = new ModelAndView("book");
         modelAndView.addObject("bookList", bookService.findAllFreeBook());
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Książki");
         modelAndView.addObject("user", user);
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         return modelAndView;
     }
     @RequestMapping(value = "/book/{bookId}",method = RequestMethod.GET)
     public ModelAndView getBookById(@PathVariable("bookId")long bookId){
         ModelAndView modelAndView = new ModelAndView("selectbook");
+        modelAndView.addObject("form", loginFormRole());
         Book book = bookService.getById(bookId);
         modelAndView.addObject("title", LIBARY_NAME + book.getName());
         modelAndView.addObject("currentBook", book);
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         return modelAndView;
     }
-    @RequestMapping(value = "contact",method = RequestMethod.GET)
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public ModelAndView getContact(){
         ModelAndView modelAndView = new ModelAndView("contact");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Kontakt");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(0));
         return modelAndView;
     }
     @RequestMapping(value = "/admin/users/",method = RequestMethod.GET)
         public  ModelAndView getAdminUsers(){
         ModelAndView modelAndView = new ModelAndView("adminUsers");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Uzytkownicy");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
@@ -91,16 +123,18 @@ private final String LIBARY_NAME = "Sun - ";
     public  ModelAndView removeAdminUsers(@PathVariable("cardnumber") String cardnumber){
         userService.removeUserByCardnumber(cardnumber);
         ModelAndView modelAndView = new ModelAndView("adminUsers");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Usuń");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
         @RequestMapping(value = "/admin/users/add",method = RequestMethod.GET)
     public  ModelAndView getAdminUsersAdd(){
         ModelAndView modelAndView = new ModelAndView("adminUsersAdd");
+            modelAndView.addObject("form", loginFormRole());
             modelAndView.addObject("title", LIBARY_NAME + "Dodaj użytkownika");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
         User user = new User();
         modelAndView.addObject("user",user);
             modelAndView.addObject("number",String.class);
@@ -109,8 +143,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/users/edit/{user}",method = RequestMethod.GET)
     public  ModelAndView getAdminUsersEdit(@PathVariable("user") String cardnumber){
         ModelAndView modelAndView = new ModelAndView("adminUsersEdit");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Edytuj użytkownika, " + cardnumber);
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         User user = userService.findUserByCardnumber(cardnumber);
         if(user==null){
             modelAndView.addObject("exist",false);
@@ -123,8 +158,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/users/edit/{path}",method = RequestMethod.POST)
     public  ModelAndView postAdminUsersEdit(@Valid User user,@PathVariable("path") String path){
         ModelAndView modelAndView = new ModelAndView("adminUsersEdit");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Edytuj użytkownika, " + path);
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         User existingUser = userService.findUserByCardnumber(path);
         existingUser.setName(user.getName());
         existingUser.setLastName(user.getLastName());
@@ -137,16 +173,18 @@ private final String LIBARY_NAME = "Sun - ";
         @RequestMapping(value = "/admin/book/",method = RequestMethod.GET)
     public  ModelAndView getAdminallBook(){
         ModelAndView modelAndView = new ModelAndView("adminAllBook");
+            modelAndView.addObject("form", loginFormRole());
             modelAndView.addObject("title", LIBARY_NAME + "Wszystkie ksiązki");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
             modelAndView.addObject("bookList", bookService.getAllBooks());
         return modelAndView;
     }
         @RequestMapping(value = "/user/settings",method = RequestMethod.GET)
     public  ModelAndView getUserSettings(){
         ModelAndView modelAndView = new ModelAndView("userSettings");
+            modelAndView.addObject("form", loginFormRole());
             modelAndView.addObject("title", LIBARY_NAME + "Ustawienia");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
             modelAndView.addObject("user", user);
         return modelAndView;
@@ -154,8 +192,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/user/settings",method = RequestMethod.POST)
     public  ModelAndView postUserSettings(@Valid User user){
         ModelAndView modelAndView = new ModelAndView("userSettings");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Ustawienia");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         User existingUser = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
         user.setActive(1);
         user.setCardnumber(existingUser.getCardnumber());
@@ -170,8 +209,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/user/books",method = RequestMethod.GET)
     public  ModelAndView getUserBooks(){
         ModelAndView modelAndView = new ModelAndView("userBook");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Książki");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
         List<Book> bookList = user.getBooks();
         modelAndView.addObject("bookList", bookList);
@@ -180,8 +220,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/user/history",method = RequestMethod.GET)
     public  ModelAndView getUserHistory(){
         ModelAndView modelAndView = new ModelAndView("userHistory");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Historia wypożyczeń");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
         List<BorrowHistory> borrowHistories = user.getBorrowHistory();
         modelAndView.addObject("borrowHistoryList", borrowHistories);
@@ -190,8 +231,9 @@ private final String LIBARY_NAME = "Sun - ";
         @RequestMapping(value = "/borrow/{bookId}",method = RequestMethod.GET)
     public  ModelAndView getBorrowBook(@PathVariable("bookId") Long bookId){
         ModelAndView modelAndView = new ModelAndView("borrowBook");
+            modelAndView.addObject("form", loginFormRole());
             modelAndView.addObject("title", LIBARY_NAME + "Wypożycz");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
         String role = this.role();
         if(role.equals("USER")){
             Book book = bookService.getById(bookId);
@@ -209,25 +251,23 @@ private final String LIBARY_NAME = "Sun - ";
                 userService.editAndSave(user);
                 bookService.saveBook(book);
             }
-        }else if(role.equals("ADMIN")){
-
-        }else{
-
         }
         return modelAndView;
     }
         @RequestMapping(value = "/admin/book/lend",method = RequestMethod.GET)
     public  ModelAndView getAdminBookLend(){
         ModelAndView modelAndView = new ModelAndView("adminBookLend");
+            modelAndView.addObject("form", loginFormRole());
             modelAndView.addObject("title", LIBARY_NAME + "Wypożyczone ksiązki");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
         modelAndView.addObject("bookList",bookService.findAllBorrowBook());
         return modelAndView;
     }
         @RequestMapping(value = "/admin/book/add",method = RequestMethod.GET)
     public  ModelAndView getAdminBookAdd(){
         ModelAndView modelAndView = new ModelAndView("adminBookAdd");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("form", loginFormRole());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
             modelAndView.addObject("title", LIBARY_NAME + "Dodaj ksiązke");
         modelAndView.addObject("book",new Book());
         return modelAndView;
@@ -235,7 +275,8 @@ private final String LIBARY_NAME = "Sun - ";
         @RequestMapping(value = "/admin/book/add",method = RequestMethod.POST)
     public  ModelAndView postAdminBookAdd(@Valid Book book){
         ModelAndView modelAndView = new ModelAndView("adminBookAddPost");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("form", loginFormRole());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
             modelAndView.addObject("title", LIBARY_NAME + "Dodaj ksiazke");
         Book existingBook = bookService.getById(book.getId());
         if(existingBook==null){
@@ -246,7 +287,8 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/book/{bookid}",method = RequestMethod.GET)
     public  ModelAndView removeAdminBook(@PathVariable("bookid") long bookid){
         ModelAndView modelAndView = new ModelAndView("adminBookRemove");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("form", loginFormRole());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
         modelAndView.addObject("title", LIBARY_NAME + "Usuń ksiązke");
         Book book = bookService.getById(bookid);
         if(book.getOwnerid()==null){
@@ -255,14 +297,14 @@ private final String LIBARY_NAME = "Sun - ";
         }else{
             modelAndView.addObject("error","Ksiązka jest wypożyczona i nie można jej usunąć!");
         }
-        modelAndView.addObject("userRole", role());
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
         @RequestMapping(value = "/admin/book/edit/{bookid}",method = RequestMethod.GET)
     public  ModelAndView getAdminBookEdit(@PathVariable("bookid") long bookid){
         ModelAndView modelAndView = new ModelAndView("adminBookEdit");
-            modelAndView.addObject("userRole",role());
+            modelAndView.addObject("form", loginFormRole());
+            modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(2));
             Book book = bookService.getById(bookid);
             modelAndView.addObject("title", LIBARY_NAME + "Edytuj ksiązke '" + book.getName() + "'");
             modelAndView.addObject("book", book);
@@ -271,8 +313,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/book/edit/{bookid}",method = RequestMethod.POST)
     public  ModelAndView postAdminBookEdit(@Valid Book bookSave,@PathVariable("bookid") long bookid){
         ModelAndView modelAndView = new ModelAndView("adminBookEdit");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Edytuj ksiązke '" + bookSave.getName() + "'");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         bookSave.setId(bookid);
         bookService.saveBook(bookSave);
         Book book = bookService.getById(bookid);
@@ -282,8 +325,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/book/edit/",method = RequestMethod.GET)
     public  ModelAndView getAdminBookEditFind(){
         ModelAndView modelAndView = new ModelAndView("adminBookEditFind");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Szukaj ksiązke");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         modelAndView.addObject("string", new SerString());
         return modelAndView;
     }
@@ -293,8 +337,9 @@ private final String LIBARY_NAME = "Sun - ";
             return new ModelAndView("redirect:" + string.getString());
         }
         ModelAndView modelAndView = new ModelAndView("adminBookEditFind");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Szukaj ksiązke");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         modelAndView.addObject("string", new SerString());
         modelAndView.addObject("error", "Brak książki o podanym id!");
         return modelAndView;
@@ -302,8 +347,9 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/users/edit/",method = RequestMethod.GET)
     public  ModelAndView getUsersBookEditFind(){
         ModelAndView modelAndView = new ModelAndView("adminBookEditFind");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Szukaj użytkownika");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         modelAndView.addObject("string", new SerString());
         return modelAndView;
     }
@@ -313,8 +359,9 @@ private final String LIBARY_NAME = "Sun - ";
             return new ModelAndView("redirect:" + string.getString());
         }
         ModelAndView modelAndView = new ModelAndView("adminBookEditFind");
+        modelAndView.addObject("form", loginFormRole());
         modelAndView.addObject("title", LIBARY_NAME + "Szukaj użytkownika");
-        modelAndView.addObject("userRole", role());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         modelAndView.addObject("string", new SerString());
         modelAndView.addObject("error", "Brak Użytkownika o podanym id!");
         return modelAndView;
@@ -323,6 +370,8 @@ private final String LIBARY_NAME = "Sun - ";
     @RequestMapping(value = "/admin/users/active/{path}", method = RequestMethod.GET)
     public ModelAndView postAdminUserActiveEdit(@PathVariable("path") String path) {
         ModelAndView modelAndView = new ModelAndView("adminUserActive");
+        modelAndView.addObject("form", loginFormRole());
+        modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(3));
         User user = userService.findUserByCardnumber(path);
         if (user.getActive() == 1) {
             user.setActive(0);
