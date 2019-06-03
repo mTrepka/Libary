@@ -34,7 +34,7 @@ public class MainController {
         ModelAndView modelAndView = new ModelAndView(viewName);
         modelAndView.addObject("title", LIBARY_NAME + title);
         modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(navigation));
-        modelAndView.addObject("form", loginFormRole());
+	    modelAndView.addObject("form", userService.isUserAuthenticated());
         return modelAndView;
     }
 
@@ -48,28 +48,10 @@ public class MainController {
         return defaultNavigationBar;
     }
 
-    private static String role() {
-        String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
-        if (role.equals("[ADMIN]")) {
-            return "ADMIN";
-        } else if (role.equals("[USER]")) {
-            return "USER";
-        }
-        return null;
-    }
-
-    private boolean loginFormRole() {
-        if (role() == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     @GetMapping(value = "/")
     public ModelAndView getIndex() {
         ModelAndView modelAndView = quickModelAndView("index", "Strona Glówna", 0);
-        modelAndView.addObject("form", this.loginFormRole());
+	    modelAndView.addObject("form", userService.isUserAuthenticated());
         return modelAndView;
     }
 
@@ -92,8 +74,7 @@ public class MainController {
 
     @GetMapping(value = "/contact")
     public ModelAndView getContact() {
-        ModelAndView modelAndView = quickModelAndView("contact", "Kontakt", 0);
-        return modelAndView;
+	    return quickModelAndView("contact", "Kontakt", 0);
     }
 
     @GetMapping(value = "/admin/users/")
@@ -116,7 +97,6 @@ public class MainController {
         ModelAndView modelAndView = quickModelAndView("adminUsersAdd", "Dodaj użytkownika", 2);
         User user = new User();
         modelAndView.addObject("user", user);
-        modelAndView.addObject("number", String.class);
         return modelAndView;
     }
 
@@ -133,15 +113,11 @@ public class MainController {
         return modelAndView;
     }
 
-    //ToDo
+
     @PostMapping(value = "/admin/users/edit/{path}")
     public ModelAndView postAdminUsersEdit(@Valid User user, @PathVariable("path") String path) {
         ModelAndView modelAndView = quickModelAndView("adminUsersEdit", "Edytuj użytkownika, ", 3);
-        User existingUser = userService.findUserByCardnumber(path);
-        existingUser.setName(user.getName());
-        existingUser.setLastName(user.getLastName());
-        existingUser.setActive(user.getActive());
-        userService.editAndSave(existingUser);
+	    User existingUser = userService.editUserByCardNumber(path, user);
         modelAndView.addObject("user", existingUser);
         modelAndView.addObject("exist", true);
         return modelAndView;
@@ -165,15 +141,8 @@ public class MainController {
     @PostMapping(value = "/user/settings")
     public ModelAndView postUserSettings(@Valid User user) {
         ModelAndView modelAndView = quickModelAndView("userSettings", "Ustawienia", 1);
-        User existingUser = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-        user.setActive(1);
-        user.setCardnumber(existingUser.getCardnumber());
-        user.setRoles(existingUser.getRoles());
-        if (user.getPassword() == "") {
-            user.setPassword(existingUser.getPassword());
-        }
-        userService.editAndSave(user);
-        modelAndView.addObject("user", user);
+	    User existingUser = userService.editCurrentUser(user);
+	    modelAndView.addObject("user", existingUser);
         return modelAndView;
     }
 
@@ -181,8 +150,7 @@ public class MainController {
     public ModelAndView getUserBooks() {
         ModelAndView modelAndView = quickModelAndView("userBook", "Książki", 1);
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-        List<Book> bookList = user.getBooks();
-        modelAndView.addObject("bookList", bookList);
+	    modelAndView.addObject("bookList", user.getBooks());
         return modelAndView;
     }
 
@@ -190,34 +158,15 @@ public class MainController {
     public ModelAndView getUserHistory() {
         ModelAndView modelAndView = quickModelAndView("userHistory", "Historia wypożyczeń", 1);
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-        List<BorrowHistory> borrowHistories = user.getBorrowHistory();
-        modelAndView.addObject("borrowHistoryList", borrowHistories);
+	    modelAndView.addObject("borrowHistoryList", user.getBorrowHistory());
         return modelAndView;
     }
 
-    //ToDo
     @GetMapping(value = "/borrow/{bookId}")
     public ModelAndView getBorrowBook(@PathVariable("bookId") Long bookId) {
         ModelAndView modelAndView = quickModelAndView("borrowBook", "Wypożycz", 1);
         modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
-        String role = this.role();
-        if (role.equals("USER")) {
-            Book book = bookService.getById(bookId);
-            if (book.getOwnerid() == null) {
-                User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-                BorrowHistory borrowHistory = new BorrowHistory();
-                java.util.Date date = new java.util.Date();
-                borrowHistory.setBorrow_date(new Date(date.getTime()));
-                borrowHistory.setBookborrow(book);
-                borrowHistory.setUserborrow(user);
-                borrowHistory.setId(borrowHistoryService.countHistories() + 1);
-                borrowHistoryService.save(borrowHistory);
-                book.setCurrentBorrowId(Long.toString(borrowHistory.getId()));
-                book.setOwnerid(user);
-                userService.editAndSave(user);
-                bookService.saveBook(book);
-            }
-        }
+	    bookService.borrowBook(bookId);
         return modelAndView;
     }
 
@@ -235,13 +184,11 @@ public class MainController {
         return modelAndView;
     }
 
+
     @PostMapping(value = "/admin/book/add")
     public ModelAndView postAdminBookAdd(@Valid Book book) {
         ModelAndView modelAndView = quickModelAndView("adminBookAddPost", "Dodaj ksiązke", 2);
-        Book existingBook = bookService.getById(book.getId());
-        if (existingBook == null) {
-            bookService.saveBook(book);
-        }
+	    bookService.addBook(book);
         return modelAndView;
     }
 
@@ -249,12 +196,7 @@ public class MainController {
     public ModelAndView removeAdminBook(@PathVariable("bookid") long bookid) {
         ModelAndView modelAndView = quickModelAndView("adminBookRemove", "Usuń ksiązke", 2);
         Book book = bookService.getById(bookid);
-        if (book.getOwnerid() == null) {
-            bookService.removeBook(book);
-            modelAndView.addObject("tru", "Ksiązke usunięto pomyślni");
-        } else {
-            modelAndView.addObject("error", "Ksiązka jest wypożyczona i nie można jej usunąć!");
-        }
+	    String result = bookService.removeBook(book);
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
@@ -267,20 +209,18 @@ public class MainController {
         return modelAndView;
     }
 
+
     @PostMapping(value = "/admin/book/edit/{bookid}")
     public ModelAndView postAdminBookEdit(@Valid Book bookSave, @PathVariable("bookid") long bookid) {
         ModelAndView modelAndView = quickModelAndView("adminBookEdit", "Edytuj ksiązke '" + bookSave.getName() + "'", 3);
-        bookSave.setId(bookid);
-        bookService.saveBook(bookSave);
-        Book book = bookService.getById(bookid);
+	    Book book = bookService.editBookAndSave(bookSave, bookid);
         modelAndView.addObject("book", book);
         return modelAndView;
     }
 
     @GetMapping(value = "/admin/book/edit/")
     public ModelAndView getAdminBookEditFind() {
-        ModelAndView modelAndView = quickModelAndView("adminBookEditFind", "Szukaj ksiązke", 3);
-        return modelAndView;
+	    return quickModelAndView("adminBookEditFind", "Szukaj ksiązke", 3);
     }
 
     @PostMapping(value = "/admin/book/edit/")
@@ -295,8 +235,7 @@ public class MainController {
 
     @GetMapping(value = "/admin/users/edit/")
     public ModelAndView getUsersBookEditFind() {
-        ModelAndView modelAndView = quickModelAndView("adminBookEditFind", "Szukaj użytkownika", 3);
-        return modelAndView;
+	    return quickModelAndView("adminBookEditFind", "Szukaj użytkownika", 3);
     }
 
     @PostMapping(value = "/admin/users/edit/")
@@ -309,18 +248,11 @@ public class MainController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/admin/users/active/{path}")
-    public ModelAndView postAdminUserActiveEdit(@PathVariable("path") String path) {
-        ModelAndView modelAndView = quickModelAndView("adminUserActive", "Edycja użytkownika", 3);
-        User user = userService.findUserByCardnumber(path);
-        if (user.getActive() == 1) {
-            user.setActive(0);
-            modelAndView.addObject("active", "Użytkownik został wyłączony");
-        } else {
-            user.setActive(1);
-            modelAndView.addObject("active", "Użytkownik został włączony");
-        }
-        userService.editAndSave(user);
-        return modelAndView;
-    }
+	//ToDo
+	@GetMapping(value = "/admin/users/active/{path}")
+	public ModelAndView postAdminUserActiveEdit(@PathVariable("path") String userId) {
+		ModelAndView modelAndView = quickModelAndView("adminUserActive", "Edycja użytkownika", 3);
+		String result = userService.activeUser(userId);
+		return modelAndView;
+	}
 }
