@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import lombok.RequiredArgsConstructor;
 import mTrepka.libary.domain.Role;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.repository.RoleRepository;
@@ -18,14 +19,11 @@ import javax.sql.DataSource;
 
 
 @Service("userService")
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService{
-	@Autowired
-	private DataSource dataSource;
-
-	@Autowired
-	private UserRepository userRepository;
-	@Autowired
-    private RoleRepository roleRepository;
+	private final DataSource dataSource;
+	private final UserRepository userRepository;
+	private final RoleRepository roleRepository;
 
 	@Override
 	public List<User> findAllUsers() {

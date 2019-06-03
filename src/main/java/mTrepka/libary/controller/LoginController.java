@@ -2,6 +2,7 @@ package mTrepka.libary.controller;
 
 import javax.validation.Valid;
 
+import lombok.RequiredArgsConstructor;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,15 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 
-
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class LoginController {
-	
-	@Autowired
-	private UserService userService;
+	private final UserService userService;
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public ModelAndView login(){

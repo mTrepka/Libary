@@ -1,5 +1,6 @@
 package mTrepka.libary.service;
 
+import lombok.RequiredArgsConstructor;
 import mTrepka.libary.domain.Book;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.repository.BookRepository;
@@ -13,9 +14,9 @@ import java.util.List;
  * Created by Mario on 2017-07-10.
  */
 @Service("bookService")
+@RequiredArgsConstructor
 public class BookServiceImpl implements BookService{
-    @Autowired
-    private BookRepository bookRepository;
+	private final BookRepository bookRepository;
 
     @Override
     public List<Book> getAllBooks() {

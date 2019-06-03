@@ -1,5 +1,7 @@
 package mTrepka.libary.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
@@ -8,6 +10,7 @@ import java.util.Set;
  * Created by Mario on 2017-07-10.
  */
 @Entity(name = "book")
+@Data
 public class Book {
     @Id
     @GeneratedValue
@@ -23,77 +26,4 @@ public class Book {
     @OneToMany(mappedBy = "bookborrow")
     private List<BorrowHistory> bookborrow;
     private String currentBorrowId;
-    public User getOwnerid() {
-        return ownerid;
-    }
-
-    public String getCurrentBorrowId() {
-        return currentBorrowId;
-    }
-
-    public void setCurrentBorrowId(String currentBorrowId) {
-        this.currentBorrowId = currentBorrowId;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", description='" + description + '\'' +
-                ", year=" + year;
-    }
-
-    public List<BorrowHistory> getBookborrow() {
-        return bookborrow;
-    }
-
-    public void setBookborrow(List<BorrowHistory> bookborrow) {
-        this.bookborrow = bookborrow;
-    }
-
-    public void setOwnerid(User owner) {
-        this.ownerid = owner;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public long getYear() {
-        return year;
-    }
-
-    public void setYear(long year) {
-        this.year = year;
-    }
 }
