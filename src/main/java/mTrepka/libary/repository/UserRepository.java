@@ -12,6 +12,7 @@ import java.util.Set;
 
 @Repository("userRepository")
 public interface UserRepository extends JpaRepository<User, Long> {
-	 User findByCardnumber(String login);
-	 void deleteRoleByCardnumber(String cardnumber);
+	User findByCardNumber(String login);
+
+	void deleteRoleByCardNumber(String cardnumber);
 }

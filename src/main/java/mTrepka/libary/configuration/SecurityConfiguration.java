@@ -38,11 +38,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.dataSource(dataSource);
 	}
 
+	//ToDo edit permissions
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
+
 		http.
-			authorizeRequests()
+				authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/book/").permitAll()
 				.antMatchers("/book/**").permitAll()

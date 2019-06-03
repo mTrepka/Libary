@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_8.xml" afterDir="false" />
+    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="Remove service layer from controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libary.iml" beforeDir="false" afterPath="$PROJECT_DIR$/libary.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/SerString.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,8 +39,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="105">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="930">
+              <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+              <folding>
+                <element signature="e#1331#1332#0" expanded="true" />
+                <element signature="e#1372#1373#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -50,17 +88,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+            <state relative-caret-position="225">
+              <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+            <state relative-caret-position="173">
+              <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3044#3045#0" expanded="true" />
+                <element signature="e#9416#9417#0" expanded="true" />
+                <element signature="e#9498#9499#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="430">
+              <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
+              <folding>
+                <element signature="e#1036#1037#0" expanded="true" />
+                <element signature="e#1093#1094#0" expanded="true" />
+                <element signature="e#2525#2526#0" expanded="true" />
+                <element signature="e#2602#2603#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,6 +158,7 @@
       <find>form</find>
       <find>modelAndView.addObject(&quot;form&quot;, loginFormRole());</find>
       <find>serStri</find>
+      <find>saveUse</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,20 +168,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BorrowHistoryReposito.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BorrowHistoryRepository.java" />
         <option value="$PROJECT_DIR$/../wykres.html" />
         <option value="C:/xampp/htdocs/wykres.php" />
         <option value="C:/xampp/htdocs/rzeczy/wykres.php" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/book.css" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/SerString.java" />
         <option value="$PROJECT_DIR$/../plan.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/navTemplate.data" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/Navigation.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
@@ -141,15 +204,21 @@
         <option value="$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" />
       </list>
     </option>
   </component>
@@ -174,7 +243,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,6 +275,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="libary" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libary" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="libary" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libary" type="b2602c69:ProjectViewProjectNode" />
@@ -273,6 +350,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -283,6 +361,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
@@ -492,7 +571,8 @@
       <option name="presentableId" value="Default" />
       <updated>1500120583794</updated>
       <workItem from="1559329675536" duration="1690000" />
-      <workItem from="1559579555995" duration="124000" />
+      <workItem from="1559579555995" duration="1036000" />
+      <workItem from="1559589303994" duration="7161000" />
     </task>
     <task id="LOCAL-00001" summary="New pages mapped">
       <created>1500158834444</created>
@@ -585,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501707005341</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add lombok,&#10;Change autowired to construction injection&#10;Add adnotation @Data to domain classes&#10;Change request mapping adnotation to latest version">
+      <created>1559579859094</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1559579859094</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -621,7 +708,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1814000" />
+    <option name="totallyTimeSpent" value="9887000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -636,7 +723,7 @@
     <frame x="1347" y="27" width="1853" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20199226" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20420587" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -650,7 +737,7 @@
       <window_info id="Web" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293348" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" visible="true" weight="0.32824427" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.32824427" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -660,7 +747,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50208336" side_tool="true" weight="0.32946146" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32900432" />
       <window_info anchor="bottom" id="MaxCompute Job" order="11" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32900432" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32824427" />
       <window_info anchor="bottom" id="MaxCompute Console" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
@@ -705,7 +792,9 @@
     <MESSAGE value="Add title variable in html and in class MainController" />
     <MESSAGE value="Add title variable and set in templates, new function in admin panel - active or deactivate user" />
     <MESSAGE value="Add class NavigationBar, dynamic created navigation by beans in BeansConfiguration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add class NavigationBar, dynamic created navigation by beans in BeansConfiguration" />
+    <MESSAGE value="Add lombok,&#10;Change autowired to construction injection&#10;Add adnotation @Data to domain classes&#10;Change request mapping adnotation to latest version" />
+    <MESSAGE value="Remove service layer from controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove service layer from controller" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -713,27 +802,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/requests/FilterRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/null" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/navTemplate.data" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/AbstractStringBuilder.java" />
@@ -904,16 +972,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -935,63 +993,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/SerString.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#51#1" expanded="true" />
-            <element signature="e#0#52#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -1025,31 +1027,127 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        <state relative-caret-position="225">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        <state relative-caret-position="150">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
+        <state relative-caret-position="300">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        <state relative-caret-position="375">
+          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="930">
+          <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+          <folding>
+            <element signature="e#1331#1332#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
+          <folding>
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#2525#2526#0" expanded="true" />
+            <element signature="e#2602#2603#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3044#3045#0" expanded="true" />
+            <element signature="e#9416#9417#0" expanded="true" />
+            <element signature="e#9498#9499#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -15,11 +15,12 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book,Long>{
     List<Book> findAll();
     Book findById(long id);
-    List<Book> findByOwnerid(User owner);
 
-	@Query(value = "SELECT * FROM book WHERE currentBorrowId = null", nativeQuery = true)
+	List<Book> findByOwner(User owner);
+
+	@Query(value = "SELECT * FROM book WHERE current_borrow = null", nativeQuery = true)
     List<Book> findFreeBook();
 
-	@Query(value = "SELECT u FROM book u WHERE u.currentBorrowId != null", nativeQuery = true)
+	@Query(value = "SELECT * FROM book WHERE current_borrow != null", nativeQuery = true)
     List<Book> findBorrowBook();
 }

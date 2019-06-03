@@ -1,18 +1,13 @@
 package mTrepka.libary.service;
 
 import java.sql.Connection;
-import java.util.Date;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import lombok.RequiredArgsConstructor;
-import mTrepka.libary.domain.Role;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.repository.RoleRepository;
 import mTrepka.libary.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -32,7 +27,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User findUserByCardnumber(String cardnumber) {
-		return userRepository.findByCardnumber(cardnumber);
+		return userRepository.findByCardNumber(cardnumber);
 	}
 
 	@Override
@@ -44,21 +39,69 @@ public class UserServiceImpl implements UserService{
 		catch (Exception e){
 			System.out.println(e.toString());
 		}
-		userRepository.delete(userRepository.findByCardnumber(cardnumber));
+		userRepository.delete(userRepository.findByCardNumber(cardnumber));
+	}
+
+
+	@Override
+	public String getCurrentUserRole() {
+		String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
+		if (role.equals("[ADMIN]")) {
+			return "ADMIN";
+		} else if (role.equals("[USER]")) {
+			return "USER";
+		}
+		return null;
 	}
 
 	@Override
-	public void saveUser(User user) {
-		user.setPassword(user.getPassword());
-        user.setActive(1);
-        user.setPassword(user.getName().hashCode()+"12"+new Date().hashCode());
-        Role userRole = roleRepository.findByRole("USER");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-		userRepository.save(user);
+	public boolean isUserAuthenticated() {
+		return !(this.getCurrentUserRole() == null);
 	}
 
 	@Override
-	public void editAndSave(User user) {
-		userRepository.save(user);
+	public User editUserByCardNumber(String cardNumber, User newUserData) {
+		User currentUser = userRepository.findByCardNumber(cardNumber);
+		changeUserByUserData(currentUser, newUserData);
+		return userRepository.saveAndFlush(currentUser);
+	}
+
+	private void changeUserByUserData(User user, User userData) {
+		if (!user.getPassword().equals(userData.getPassword()))
+			user.setPassword(userData.getPassword());
+		if (!user.getName().equals(userData.getName()))
+			user.setName(userData.getName());
+		if (!user.getLastName().equals(userData.getLastName()))
+			user.setLastName(userData.getLastName());
+	}
+
+	@Override
+	public User editCurrentUser(User userData) {
+		return editUserByCardNumber(getCurrentUser().getCardNumber(), userData);
+	}
+
+	@Override
+	public User getCurrentUser() {
+		return userRepository.findByCardNumber(SecurityContextHolder.getContext().getAuthentication().getName());
+	}
+
+	@Override
+	public String activeUser(String userId) {
+		User user = findUserByCardnumber(userId);
+		if (user.getActive() == 1) {
+			user.setActive(0);
+			userRepository.save(user);
+			return "User is deactivated";
+		} else {
+			user.setActive(1);
+			userRepository.save(user);
+			return "User is activated";
+		}
+	}
+
+	//Todo
+	@Override
+	public void createNewUser(User user) {
+
 	}
 }

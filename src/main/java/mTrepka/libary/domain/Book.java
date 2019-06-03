@@ -3,6 +3,7 @@ package mTrepka.libary.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -17,13 +18,16 @@ public class Book {
     @Column(name = "bookid")
     private long id;
     private String name;
+	private long isbn;
+	private long pageAmount;
+	private LocalDate releaseDate;
     private String author;
     private String description;
-    private long year;
     @ManyToOne
-    @JoinColumn(name = "ownerid")
-    private User ownerid;
-    @OneToMany(mappedBy = "bookborrow")
-    private List<BorrowHistory> bookborrow;
-    private String currentBorrowId;
+    @JoinColumn(name = "owner")
+    private User owner;
+	@OneToMany(mappedBy = "bookBorrow")
+	private List<BorrowHistory> bookBorrow;
+	@OneToOne
+	private BorrowHistory currentBorrow;
 }

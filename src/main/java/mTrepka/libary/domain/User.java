@@ -13,8 +13,7 @@ import org.springframework.data.annotation.Transient;
 @Data
 public class User {
 	@Id
-	@GeneratedValue
-	private String cardnumber;
+	private String cardNumber;
 	@Transient
 	private String password;
 	@NotEmpty
@@ -25,8 +24,8 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	@OneToMany(mappedBy = "ownerid")
+	@OneToMany(mappedBy = "owner")
 	private List<Book> books;
-	@OneToMany(mappedBy = "userborrow")
+	@OneToMany(mappedBy = "userBorrow")
 	private List<BorrowHistory> borrowHistory;
 }

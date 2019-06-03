@@ -29,18 +29,17 @@ public class LoginController {
 	
 	@RequestMapping(value="/registration", method = RequestMethod.GET)
 	public ModelAndView registration(){
-		ModelAndView modelAndView = new ModelAndView();
-		User user = new User();
-		modelAndView.addObject("user", user);
-		modelAndView.setViewName("registration");
+		ModelAndView modelAndView = new ModelAndView("registration");
+		modelAndView.addObject("user", new User());
 		return modelAndView;
 	}
-	
+
+	//ToDo
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
 		//User userExists = userService.findUserByCardnumber(user.getCardnumber());
-			userService.saveUser(user);
+		userService.createNewUser(user);
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("registration");
 		return modelAndView;

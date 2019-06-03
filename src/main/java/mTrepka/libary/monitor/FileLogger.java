@@ -28,7 +28,7 @@ public class FileLogger {
     @AfterReturning(pointcut = "execution(* mTrepka.libary.controller.MainController.postAdminUsersEdit(..))",returning="retVal")
     public void userOperationLogger(Object retVal){
         ModelAndView modelAndView = (ModelAndView) retVal;
-        String user = ((User)modelAndView.getModel().get("user")).getCardnumber();
+	    String user = ((User) modelAndView.getModel().get("user")).getCardNumber();
         logger.info("User '"+user+"', eddited by "+SecurityContextHolder.getContext().getAuthentication().getName());
     }
     @AfterReturning(pointcut = "execution(* mTrepka.libary.controller.MainController.postAdminBookEdit(..))",returning="retVal")

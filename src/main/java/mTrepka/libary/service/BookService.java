@@ -9,11 +9,18 @@ import java.util.List;
  * Created by Mario on 2017-07-10.
  */
 public interface BookService {
-    public List<Book> getAllBooks();
-    public Book getById(long id);
+	List<Book> getAllBooks();
+
+	Book getById(long id);
     List<Book> findByOwnerid(User owner);
-    void saveBook(Book book);
     List<Book> findAllFreeBook();
     List<Book> findAllBorrowBook();
-    void removeBook(Book book);
+
+	String removeBook(Book book);
+
+	void borrowBook(Long bookId);
+
+	void addBook(Book book);
+
+	Book editBookAndSave(Book BookData, long bookId);
 }
