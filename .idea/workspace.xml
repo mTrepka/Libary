@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="Remove service layer from controller">
+    <list default="true" id="d2204c93-313f-4d87-a849-6cc13745c66c" name="Default" comment="Templates renamed and moved to user and admin folders&#10;Add @Data to Navigation Bar&#10;Change bidirectional relation in User, Book and BorrowHistory to single&#10;Add create new user only in admin panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" afterDir="false" />
@@ -11,12 +12,55 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminAllBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/allBook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/bookAdd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookAddPost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/bookAddPost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/bookEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/bookEditFind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/bookLend.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/bookRemove.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/userActive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsersAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/usersAdd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsersEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/usersEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminUsersEditFind.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/usersEditFind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/borrowBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/borrowBook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/selectbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/selectbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userBook.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userHistory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userSettings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminAllBook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminBookAdd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminBookAddPost.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminBookEdit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminBookEditFind.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminBookLend.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminBookRemove.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminUsers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersAdd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersEdit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminUsersEditFind.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/borrowBook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/registration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/selectbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/selectbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userBook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userHistory.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userSettings.html" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="C:\Users\Mario\Desktop\Libary\.idea\shelf/" />
@@ -37,83 +81,55 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/book.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+            <state relative-caret-position="300">
+              <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
+            <state relative-caret-position="-594">
+              <caret line="134" column="36" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="36" />
               <folding>
-                <element signature="e#1331#1332#0" expanded="true" />
-                <element signature="e#1372#1373#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+            <state relative-caret-position="175">
+              <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3044#3045#0" expanded="true" />
-                <element signature="e#9416#9417#0" expanded="true" />
-                <element signature="e#9498#9499#0" expanded="true" />
+                <element signature="e#1828#1829#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookLend.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+            <state relative-caret-position="435">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="98" column="37" lean-forward="true" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,14 +137,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
-              <folding>
-                <element signature="e#1036#1037#0" expanded="true" />
-                <element signature="e#1093#1094#0" expanded="true" />
-                <element signature="e#2525#2526#0" expanded="true" />
-                <element signature="e#2602#2603#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="181">
+              <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="18" column="33" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="30" column="39" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -147,7 +175,6 @@
     <findStrings>
       <find>post</find>
       <find>save</find>
-      <find>borrow</find>
       <find>system</find>
       <find>saveuser</find>
       <find>borrowBook</find>
@@ -159,6 +186,16 @@
       <find>modelAndView.addObject(&quot;form&quot;, loginFormRole());</find>
       <find>serStri</find>
       <find>saveUse</find>
+      <find>userBook</find>
+      <find>redire</find>
+      <find>add</find>
+      <find>/admin/users/add</find>
+      <find>re</find>
+      <find>card</find>
+      <find>borrow</find>
+      <find>index</find>
+      <find>role</find>
+      <find>admin/book</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,57 +205,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../wykres.html" />
-        <option value="C:/xampp/htdocs/wykres.php" />
-        <option value="C:/xampp/htdocs/rzeczy/wykres.php" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/css/book.css" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/SerString.java" />
-        <option value="$PROJECT_DIR$/../plan.txt" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/navTemplate.data" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/Navigation.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminAllBook.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookAddPost.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsers.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsersAdd.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsersEdit.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminUsersEditFind.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/book.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/contact.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/borrowBook.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/selectbook.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/registration.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userBook.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userHistory.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userSettings.html" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java" />
         <option value="$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/CustomModelAndView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/usersEdit.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/allBook.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/bookAdd.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/bookEdit.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/bookEditFind.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/bookRemove.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/userActive.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/bookAddPost.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/usersAdd.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/usersEditFind.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/contact.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/user/borrowBook.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/user/history.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/user/settings.html" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/book.html" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/selectbook.html" />
         <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/user/book.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/admin/bookLend.html" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -230,10 +267,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1347" />
-    <option name="y" value="27" />
-    <option name="width" value="1853" />
-    <option name="height" value="1053" />
+    <option name="x" value="-239" />
+    <option name="width" value="1389" />
+    <option name="height" value="789" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -243,6 +279,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,9 +372,7 @@
               <item name="libary" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="libary" type="462c0819:PsiDirectoryNode" />
-              <item name="utility" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="libary" type="b2602c69:ProjectViewProjectNode" />
@@ -345,26 +380,51 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libary" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="libary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="libary" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="sshConsole" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/user" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates/admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mario\Desktop\Libary\src\main\resources\templates" />
     </key>
@@ -561,7 +621,7 @@
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -572,7 +632,10 @@
       <updated>1500120583794</updated>
       <workItem from="1559329675536" duration="1690000" />
       <workItem from="1559579555995" duration="1036000" />
-      <workItem from="1559589303994" duration="7161000" />
+      <workItem from="1559589303994" duration="7414000" />
+      <workItem from="1559665210076" duration="8217000" />
+      <workItem from="1559745591109" duration="4171000" />
+      <workItem from="1559759129941" duration="3583000" />
     </task>
     <task id="LOCAL-00001" summary="New pages mapped">
       <created>1500158834444</created>
@@ -672,7 +735,21 @@
       <option name="project" value="LOCAL" />
       <updated>1559579859094</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Remove service layer from controller">
+      <created>1559598917604</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1559598917604</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Create logic in service layer&#10;Early changes in book borrow logic&#10;Add todo to security configuration - need edit permissions">
+      <created>1559599090552</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1559599090552</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -708,7 +785,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9887000" />
+    <option name="totallyTimeSpent" value="26111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -720,10 +797,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1347" y="27" width="1853" height="1053" extended-state="6" />
+    <frame x="0" y="0" width="1280" height="1024" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20420587" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28768232" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -736,23 +813,23 @@
       <window_info id="MaxCompute Job Explorer" order="10" />
       <window_info id="Web" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3293348" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.32824427" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32882884" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49791667" weight="0.3277027" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39864865" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32824427" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3277027" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50208336" side_tool="true" weight="0.32946146" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32900432" />
       <window_info anchor="bottom" id="MaxCompute Job" order="11" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32824427" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.3277027" />
       <window_info anchor="bottom" id="MaxCompute Console" order="13" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Java Enterprise" order="16" />
-      <window_info anchor="bottom" id="Database Changes" order="17" />
+      <window_info anchor="bottom" id="Database Changes" order="16" />
+      <window_info anchor="bottom" id="Java Enterprise" order="17" weight="0.32995495" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -765,7 +842,7 @@
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Maven" order="10" />
       <window_info anchor="right" id="Database" order="11" />
-      <window_info anchor="right" id="Bean Validation" order="12" />
+      <window_info anchor="right" id="Bean Validation" order="12" weight="0.3298217" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -782,6 +859,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="New pages mapped" />
     <MESSAGE value="Make relation ManyToMany borrowed books" />
     <MESSAGE value="Mapped user/settings&#10;add userSettings.html" />
@@ -794,191 +872,18 @@
     <MESSAGE value="Add class NavigationBar, dynamic created navigation by beans in BeansConfiguration" />
     <MESSAGE value="Add lombok,&#10;Change autowired to construction injection&#10;Add adnotation @Data to domain classes&#10;Change request mapping adnotation to latest version" />
     <MESSAGE value="Remove service layer from controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove service layer from controller" />
+    <MESSAGE value="Create logic in service layer&#10;Early changes in book borrow logic&#10;Add todo to security configuration - need edit permissions" />
+    <MESSAGE value="Templates renamed and moved to user and admin folders&#10;Add @Data to Navigation Bar&#10;Change bidirectional relation in User, Book and BorrowHistory to single&#10;Add create new user only in admin panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Templates renamed and moved to user and admin folders&#10;Add @Data to Navigation Bar&#10;Change bidirectional relation in User, Book and BorrowHistory to single&#10;Add create new user only in admin panel" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/null" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/navTemplate.data" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/AbstractStringBuilder.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Object.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminAllBook.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookAddPost.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookEditFind.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookLend.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookRemove.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsersAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsersEdit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/book.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/contact.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/borrowBook.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userBook.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userHistory.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userSettings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/Navigation.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminBookAdd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUsersEditFind.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/mTrepka/libary/test/ApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/selectbook.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminUserActive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -994,18 +899,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/SerString.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="e#3240#3241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1027,16 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BorrowHistoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1044,109 +927,310 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        <state relative-caret-position="165">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/CustomModelAndView.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-validator/5.3.5.Final/hibernate-validator-5.3.5.Final.jar!/org/hibernate/validator/internal/constraintvalidators/hv/URLValidator.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
-          <folding>
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1372#1373#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+        <state relative-caret-position="90">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/monitor/FileLogger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="51" lean-forward="true" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+        <state relative-caret-position="300">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.8.RELEASE/spring-webmvc-4.3.8.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        <state relative-caret-position="169">
+          <caret line="531" selection-start-line="531" selection-end-line="531" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/UserRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="12" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.8.RELEASE/spring-webmvc-4.3.8.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <caret line="398" selection-start-line="398" selection-end-line="398" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.8.RELEASE/spring-web-4.3.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="84" column="46" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
+        <state relative-caret-position="154">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookEditFind.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookRemove.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookAddPost.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/userActive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/usersAdd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/usersEditFind.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/usersEdit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="101" selection-start-line="12" selection-start-column="97" selection-end-line="12" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/borrowBook.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/SecurityConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="60" column="46" selection-start-line="60" selection-start-column="46" selection-end-line="60" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/allBook.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/configuration/BeansConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="45" column="34" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
           <folding>
-            <element signature="e#1036#1037#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#2525#2526#0" expanded="true" />
-            <element signature="e#2602#2603#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/users.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/selectbook.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/repository/BookRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="225">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/user/book.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/controller/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
+        <state relative-caret-position="-594">
+          <caret line="134" column="36" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3044#3045#0" expanded="true" />
-            <element signature="e#9416#9417#0" expanded="true" />
-            <element signature="e#9498#9499#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="30" column="39" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/domain/BorrowHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin/bookLend.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/utility/NavigationBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="98" column="37" lean-forward="true" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mTrepka/libary/service/BookServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="62" column="43" selection-start-line="62" selection-start-column="43" selection-end-line="62" selection-end-column="43" />
+          <folding>
+            <element signature="e#1828#1829#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,8 +1,5 @@
 package mTrepka.libary.service;
 
-import java.sql.Connection;
-import java.util.List;
-
 import lombok.RequiredArgsConstructor;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.repository.RoleRepository;
@@ -11,6 +8,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.beans.Transient;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 
 @Service("userService")
@@ -62,10 +64,12 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User editUserByCardNumber(String cardNumber, User newUserData) {
 		User currentUser = userRepository.findByCardNumber(cardNumber);
+		System.out.println(currentUser);
 		changeUserByUserData(currentUser, newUserData);
-		return userRepository.saveAndFlush(currentUser);
+		return userRepository.save(currentUser);
 	}
 
+	@Transient
 	private void changeUserByUserData(User user, User userData) {
 		if (!user.getPassword().equals(userData.getPassword()))
 			user.setPassword(userData.getPassword());
@@ -99,9 +103,13 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 
-	//Todo
 	@Override
 	public void createNewUser(User user) {
-
+		user.setPassword(user.getCardNumber());
+		user.setBorrowHistory(new ArrayList<>());
+		user.setRoles(new HashSet<>());
+		user.getRoles().add(roleRepository.findByRole("USER"));
+		user.setActive(0);
+		userRepository.save(user);
 	}
 }

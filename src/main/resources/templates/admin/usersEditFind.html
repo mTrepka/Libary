@@ -10,7 +10,7 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
             <input type="text" name="cardnumber" th:placeholder="CardNumber"
             /> <br/>
@@ -21,21 +21,11 @@
     </div>
 </nav>
 <section>
-    <table>
-        <tr>
-            <td>Nazwa ksiązki</td>
-            <td>Data wypożyczenia</td>
-            <td>Data oddania</td>
-            <td>Numer id ksiązki</td>
-    </tr>
-        <tr th:each="currentHistory, stat :${borrowHistoryList}">
-            <td th:text="${currentHistory.bookborrow.name}"></td>
-            <td th:text="${currentHistory.borrow_date}"></td>
-            <td th:text="${currentHistory.return_date}"></td>
-            <td th:text="${currentHistory.bookborrow.id}"></td>
-        </tr>
-    </table>
-
+    <h1 th:text="${error}"/>
+<form method="post"  th:object="${string}" >
+<input type="text" th:field="${string.string}"/>
+    <input type="submit" value="Szukaj"/>
+</form>
 </section>
 </body>
 

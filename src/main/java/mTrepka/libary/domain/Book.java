@@ -1,11 +1,11 @@
 package mTrepka.libary.domain;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Mario on 2017-07-10.
@@ -20,13 +20,12 @@ public class Book {
     private String name;
 	private long isbn;
 	private long pageAmount;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate releaseDate;
     private String author;
-    private String description;
-    @ManyToOne
-    @JoinColumn(name = "owner")
-    private User owner;
-	@OneToMany(mappedBy = "bookBorrow")
+	@Column(columnDefinition = "varchar(512)")
+	private String description;
+	@OneToMany
 	private List<BorrowHistory> bookBorrow;
 	@OneToOne
 	private BorrowHistory currentBorrow;

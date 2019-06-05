@@ -2,8 +2,9 @@ package mTrepka.libary.domain;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
 /**
@@ -17,10 +18,7 @@ public class BorrowHistory {
     private long id;
 	private LocalDate borrow_date;
 	private LocalDate return_date;
-    @ManyToOne
-    @JoinColumn(name = "userborrow")
-    private User userBorrow;
-    @ManyToOne
-    @JoinColumn(name = "bookborrow")
-    private Book bookBorrow;
+	private String status;
+	private String userCardNumber;
+	private long bookId;
 }

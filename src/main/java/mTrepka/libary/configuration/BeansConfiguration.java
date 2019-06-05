@@ -3,7 +3,6 @@ package mTrepka.libary.configuration;
 import mTrepka.libary.utility.NavigationBar;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,35 +17,33 @@ public class BeansConfiguration {
     @Bean
     NavigationBar defaultNavigationBar() {
         NavigationBar navigation = new NavigationBar();
-        navigation.addMenu("Strona Glowna", "../");
-        navigation.addMenu("Ksiazki", "book/");
-        navigation.addMenu("Kontakt", "contact");
+	    navigation.addMenu("Index", "../");
+	    navigation.addMenu("Books ", "book/");
+	    navigation.addMenu("Contact", "contact");
         return navigation;
     }
 
     @Bean
     NavigationBar userNavigatonBar() {
         NavigationBar navigation = defaultNavigationBar().clone();
-        navigation.addMenu("Panel Użytkownika", "");
-        navigation.addMenu("Moje Wypożyczenia", "user/books");
-        navigation.addMenu("Historia Wypożyczeń", "user/history");
-        navigation.addMenu("Ustawienia", "user/settings");
-        navigation.addMenu("Wyloguj", "logout");
+	    navigation.addMenu("User panel", "");
+	    navigation.addMenu("My borrows", "user/books");
+	    navigation.addMenu("Borrows history", "user/history");
+	    navigation.addMenu("Settings", "user/settings");
+	    navigation.addMenu("Logout", "logout");
         return navigation;
     }
 
     @Bean
     NavigationBar adminNavigationBar() {
         NavigationBar navigation = defaultNavigationBar().clone();
-        navigation.addMenu("Wyświetl Wszystkich", "admin/users/");
-        navigation.addMenu("Dodaj użytkownika", "admin/users/add");
-        navigation.addMenu("Edytuj użytkowników", "admin/users/edit/");
-        navigation.addMenu("Książki", "");
-        navigation.addMenu("Wyswietlij Wszystkie", "admin/book/");
-        navigation.addMenu("Dodaj książke", "admin/book/add");
-        navigation.addMenu("Edytuj książke", "admin/book/edit/");
-        navigation.addMenu("Pokaż wypożyczone", "admin/book/lend");
-        navigation.addMenu("Wyloguj", "logout");
+	    navigation.addMenu("All users", "admin/users/");
+	    navigation.addMenu("Add user", "admin/users/add");
+	    navigation.addMenu("Books", "");
+	    navigation.addMenu("All books", "admin/book/");
+	    navigation.addMenu("Add book", "admin/book/add");
+	    navigation.addMenu("Show lend book", "admin/book/lend");
+	    navigation.addMenu("logout", "logout");
         return navigation;
     }
 }

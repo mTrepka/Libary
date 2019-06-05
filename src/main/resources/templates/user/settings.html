@@ -10,15 +10,6 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
-        <form th:action="@{/login}" method="POST">
-            <input type="text" name="cardnumber" th:placeholder="CardNumber"
-            /> <br/>
-            <input type="password" th:placeholder="Password"
-                   name="password"/> <br/>
-            <input type="Submit" value="submit"/>
-        </form>
-    </div>
 </nav>
 <section>
         <form  action="#" method="post" th:object="${user}" role="form" >

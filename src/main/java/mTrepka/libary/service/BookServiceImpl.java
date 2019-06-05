@@ -5,6 +5,7 @@ import mTrepka.libary.domain.Book;
 import mTrepka.libary.domain.BorrowHistory;
 import mTrepka.libary.domain.User;
 import mTrepka.libary.repository.BookRepository;
+import mTrepka.libary.repository.BorrowHistoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService{
 	private final BookRepository bookRepository;
+	private final BorrowHistoryRepository borrowHistoryRepository;
     private final UserService userService;
 
     @Override
@@ -29,10 +31,6 @@ public class BookServiceImpl implements BookService{
         return bookRepository.findById(id);
     }
 
-    @Override
-    public List<Book> findByOwnerid(User ownerid) {
-        return bookRepository.findByOwner(ownerid);
-    }
 
 
     @Override
@@ -48,26 +46,27 @@ public class BookServiceImpl implements BookService{
     @Override
     public void borrowBook(Long bookId) {
         Book book = bookRepository.findById(bookId);
-        if (book.getOwner() == null) {
+	    if (book.getCurrentBorrow() == null) {
             User user = userService.getCurrentUser();
             BorrowHistory borrowHistory = new BorrowHistory();
             borrowHistory.setBorrow_date(LocalDate.now());
-            borrowHistory.setBookBorrow(book);
-            borrowHistory.setUserBorrow(user);
+		    borrowHistory.setBookId(book.getId());
+		    borrowHistory.setUserCardNumber(user.getCardNumber());
+		    borrowHistory.setStatus("lend");
             book.setCurrentBorrow(borrowHistory);
-            book.setOwner(user);
-            bookRepository.save(book);
+		    user.getBooks().add(book);
+		    borrowHistoryRepository.save(borrowHistory);
         }
     }
 
     @Override
     public List<Book> findAllBorrowBook() {
-        return bookRepository.findBorrowBook();
+	    return bookRepository.findBorrowBook();
     }
 
     @Override
     public String removeBook(Book book) {
-        if (book.getOwner() == null) {
+	    if (book.getCurrentBorrow() == null) {
             bookRepository.delete(book);
             return "Book has been removed";
         } else {
@@ -80,6 +79,7 @@ public class BookServiceImpl implements BookService{
     public Book editBookAndSave(Book bookData, long bookId) {
         Book currentBook = bookRepository.findById(bookId);
         editBookFromTemplate(currentBook, bookData);
+	    bookRepository.save(currentBook);
         return currentBook;
     }
 
@@ -92,4 +92,7 @@ public class BookServiceImpl implements BookService{
         currentBook.setReleaseDate(bookData.getReleaseDate());
     }
 
+	public List<Book> getLastFiveBooks() {
+		return bookRepository.getLastFiveBooks();
+	}
 }

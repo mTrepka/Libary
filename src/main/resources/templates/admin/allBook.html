@@ -11,7 +11,7 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
             <input type="text" name="cardnumber" th:placeholder="CardNumber"
             /> <br/>
@@ -25,13 +25,19 @@
     <table>
         <tr>
             <td>Id</td>
-            <td>Nazwa</td>
-            <td>Autor</td>
+            <td>Name</td>
+            <td>Author</td>
+            <td>Isbn</td>
+            <td>Page amount</td>
+            <td>Relase date</td>
         </tr>
         <tr th:each="currentBook, stat :${bookList}">
-            <td th:text="${currentBook.id}">aha</td>
-            <td th:text="${currentBook.name}">aha</td>
-            <td th:text="${currentBook.author}">aha</td>
+            <td th:text="${currentBook.id}"/>
+            <td th:text="${currentBook.name}"/>
+            <td th:text="${currentBook.author}"/>
+            <td th:text="${currentBook.isbn}"/>
+            <td th:text="${currentBook.pageAmount}"/>
+            <td th:text="${currentBook.releaseDate}"/>
             <td><a th:href="${currentBook.id}"><img th:src="@{/images/remove.jpg}" width="16px"/></a>
                 <a th:href="@{'edit/'+ ${currentBook.id}}"><img th:src="@{/images/edit.png}" width="16px"/></a>
             </td>

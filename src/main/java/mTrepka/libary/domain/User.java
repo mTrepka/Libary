@@ -1,20 +1,17 @@
 package mTrepka.libary.domain;
 
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.*;
-
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.annotation.Transient;
+
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
 public class User {
 	@Id
 	private String cardNumber;
-	@Transient
 	private String password;
 	@NotEmpty
 	private String name;
@@ -24,8 +21,8 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
-	@OneToMany(mappedBy = "owner")
+	@OneToMany
 	private List<Book> books;
-	@OneToMany(mappedBy = "userBorrow")
+	@OneToMany
 	private List<BorrowHistory> borrowHistory;
 }
