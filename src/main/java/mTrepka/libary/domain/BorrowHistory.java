@@ -1,75 +1,24 @@
 package mTrepka.libary.domain;
 
-import javax.persistence.*;
-import java.sql.Date;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.time.LocalDate;
 
 /**
  * Created by Mario on 2017-07-16.
  */
 @Entity(name = "borrow_history")
+@Data
 public class BorrowHistory {
     @Id
     @GeneratedValue
     private long id;
-    private Date borrow_date;
-    private Date return_date;
-    @ManyToOne
-    @JoinColumn(name = "userborrow")
-    private User userborrow;
-    @ManyToOne
-    @JoinColumn(name = "bookborrow")
-    private Book bookborrow;
-    @Override
-    public String toString() {
-        return "BorrowHistory{" +
-                "id=" + id +
-                ", borrow_date=" + borrow_date +
-                ", return_date=" + return_date +
-                ", userborrow=" + userborrow.getCardnumber() +
-                ", bookborrow=" + bookborrow.getId() +
-                '}';
-    }
-
-    public Book getBookborrow() {
-        return bookborrow;
-    }
-
-    public void setBookborrow(Book bookborrow) {
-        this.bookborrow = bookborrow;
-    }
-
-
-
-    public User getUserborrow() {
-        return userborrow;
-    }
-
-    public void setUserborrow(User userborrow) {
-        this.userborrow = userborrow;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Date getBorrow_date() {
-        return borrow_date;
-    }
-
-    public void setBorrow_date(Date borrow_date) {
-        this.borrow_date = borrow_date;
-    }
-
-    public Date getReturn_date() {
-        return return_date;
-    }
-
-    public void setReturn_date(Date return_date) {
-        this.return_date = return_date;
-    }
-
+	private LocalDate borrow_date;
+	private LocalDate return_date;
+	private String status;
+	private String userCardNumber;
+	private long bookId;
 }

@@ -1,0 +1,42 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
+</head>
+<body>
+<nav>
+    <h2>Menu</h2>
+    <div th:utext="${navigation}"></div>
+    <div th:if="${form} == false">
+        <form th:action="@{/login}" method="POST">
+            <input type="text" name="cardnumber" th:placeholder="CardNumber"
+            /> <br/>
+            <input type="password" th:placeholder="Password"
+                   name="password"/> <br/>
+            <input type="Submit" value="submit"/>
+        </form>
+    </div>
+</nav>
+<section>
+    <form th:action="@{/admin/book/add}" action="#" method="post" th:object="${book}"  role="form">
+        <label>Title</label><br/>
+        <input placeholder="Title" required="required" th:field="*{name}" type="text"/><br/>
+        <label>Isbn</label><br/>
+        <input placeholder="Isbn" required="required" th:field="*{isbn}" type="text"/><br/>
+        <label>Author</label><br/>
+        <input placeholder="Author" required="required" th:field="*{author}" type="text"/><br/>
+        <label>Description</label><br/>
+        <input placeholder="Description" required="required" th:field="*{description}" type="text"/><br/>
+        <label>Page Amount</label><br/>
+        <input placeholder="Page amount" required="required" th:field="*{pageAmount}" type="text"/><br/>
+        <label>Relase Date</label><br/>
+        <input placeholder="Relase Date" required="required" th:field="*{releaseDate}" type="date"/><br/>
+        <button type="submit">Add</button>
+    </form>
+</section>
+</body>
+
+</html>

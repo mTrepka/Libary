@@ -11,7 +11,7 @@
 <nav>
 	<h2>Menu</h2>
 	<div th:utext="${navigation}"></div>
-	<div th:if="${form} == true">
+	<div th:if="${form} == false">
 		<form th:action="@{/login}" method="POST">
 			<input type="text" name="cardnumber" th:placeholder="CardNumber"
 			/> <br/>

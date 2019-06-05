@@ -1,7 +1,6 @@
 package mTrepka.libary.repository;
 
 import mTrepka.libary.domain.Book;
-import mTrepka.libary.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -15,9 +14,13 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book,Long>{
     List<Book> findAll();
     Book findById(long id);
-    List<Book> findByOwnerid(User owner);
-    @Query("SELECT u FROM book u WHERE u.currentBorrowId = null")
+
+	@Query(value = "SELECT * FROM book WHERE current_borrow_id is null", nativeQuery = true)
     List<Book> findFreeBook();
-    @Query("SELECT u FROM book u WHERE u.currentBorrowId != null")
+
+	@Query(value = "SELECT * FROM book WHERE current_borrow_id is not null", nativeQuery = true)
     List<Book> findBorrowBook();
+
+	@Query(value = "SELECT * FROM book order by bookid desc limit 4", nativeQuery = true)
+	List<Book> getLastFiveBooks();
 }

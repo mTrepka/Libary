@@ -1,54 +1,41 @@
 package mTrepka.libary.controller;
 
-import mTrepka.libary.domain.*;
+import lombok.RequiredArgsConstructor;
+import mTrepka.libary.domain.Book;
+import mTrepka.libary.domain.User;
 import mTrepka.libary.service.BookService;
 import mTrepka.libary.service.BorrowHistoryService;
 import mTrepka.libary.service.UserService;
 import mTrepka.libary.utility.NavigationBar;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
-import java.sql.Date;
-import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Mario on 2017-07-10.
  */
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class MainController {
-    @Autowired
-    private BookService bookService;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private BorrowHistoryService borrowHistoryService;
-    @Autowired
-    NavigationBar defaultNavigationBar;
-    @Autowired
-    NavigationBar userNavigatonBar;
-    @Autowired
-    NavigationBar adminNavigationBar;
-    //    @RequestMapping(value = "/",method = RequestMethod.GET)
-//    public  ModelAndView getIndex(){
-//        ModelAndView modelAndView = new ModelAndView("");
-//        return modelAndView;
-//    }
+    private final BookService bookService;
+    private final UserService userService;
+    private final BorrowHistoryService borrowHistoryService;
+    private final NavigationBar defaultNavigationBar;
+    private final NavigationBar userNavigatonBar;
+    private final NavigationBar adminNavigationBar;
     private final String LIBARY_NAME = "Sun - ";
 
     private ModelAndView quickModelAndView(String viewName, String title, int navigation) {
         ModelAndView modelAndView = new ModelAndView(viewName);
         modelAndView.addObject("title", LIBARY_NAME + title);
         modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(navigation));
-        modelAndView.addObject("form", loginFormRole());
+	    modelAndView.addObject("form", userService.isUserAuthenticated());
         return modelAndView;
     }
 
@@ -62,32 +49,14 @@ public class MainController {
         return defaultNavigationBar;
     }
 
-    private static String role() {
-        String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
-        if (role.equals("[ADMIN]")) {
-            return "ADMIN";
-        } else if (role.equals("[USER]")) {
-            return "USER";
-        }
-        return null;
-    }
-
-    private boolean loginFormRole() {
-        if (role() == null) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public ModelAndView getIndex() {
         ModelAndView modelAndView = quickModelAndView("index", "Strona Glówna", 0);
-        modelAndView.addObject("form", this.loginFormRole());
+        modelAndView.addObject("lastBookList", bookService.getLastFiveBooks());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/book/", method = RequestMethod.GET)
+    @GetMapping(value = "/book/")
     public ModelAndView book() {
         String user = SecurityContextHolder.getContext().getAuthentication().getName();
         ModelAndView modelAndView = quickModelAndView("book", "Książki", 1);
@@ -96,47 +65,53 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/book/{bookId}", method = RequestMethod.GET)
-    public ModelAndView getBookById(@PathVariable("bookId") long bookId) {
+    @GetMapping(value = "/book/{bookId}")
+    public ModelAndView getBookById(@PathVariable("bookId") long bookId, String borrow) {
         Book book = bookService.getById(bookId);
         ModelAndView modelAndView = quickModelAndView("selectbook", book.getName(), 1);
         modelAndView.addObject("currentBook", book);
+        modelAndView.addObject("userRole", userService.getCurrentUserRole());
+        if (borrow != null && borrow.equals("borrowbook"))
+            bookService.borrowBook(bookId);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    @GetMapping(value = "/contact")
     public ModelAndView getContact() {
-        ModelAndView modelAndView = quickModelAndView("contact", "Kontakt", 0);
-        return modelAndView;
+	    return quickModelAndView("contact", "Kontakt", 0);
     }
 
-    @RequestMapping(value = "/admin/users/", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/users/")
     public ModelAndView getAdminUsers() {
-        ModelAndView modelAndView = quickModelAndView("adminUsers", "Uzytkownicy", 2);
+        ModelAndView modelAndView = quickModelAndView("admin/users", "Uzytkownicy", 2);
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users/{cardnumber}", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/users/{cardnumber}")
     public ModelAndView removeAdminUsers(@PathVariable("cardnumber") String cardnumber) {
         userService.removeUserByCardnumber(cardnumber);
-        ModelAndView modelAndView = quickModelAndView("adminUsers", "Usuń", 2);
+        ModelAndView modelAndView = quickModelAndView("admin/users", "Usuń", 2);
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users/add", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/users/add")
     public ModelAndView getAdminUsersAdd() {
-        ModelAndView modelAndView = quickModelAndView("adminUsersAdd", "Dodaj użytkownika", 2);
-        User user = new User();
-        modelAndView.addObject("user", user);
-        modelAndView.addObject("number", String.class);
+        ModelAndView modelAndView = quickModelAndView("admin/usersAdd", "Dodaj użytkownika", 2);
+        modelAndView.addObject("user", new User());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users/edit/{user}", method = RequestMethod.GET)
+    @PostMapping(value = "/admin/users/add")
+    public ModelAndView postAdminUsersAdd(@Valid User user, BindingResult bindingResult) {
+        userService.createNewUser(user);
+        return new ModelAndView("redirect:/admin/users/");
+    }
+
+    @GetMapping(value = "/admin/users/edit/{user}")
     public ModelAndView getAdminUsersEdit(@PathVariable("user") String cardnumber) {
-        ModelAndView modelAndView = quickModelAndView("adminUsersEdit", "Edytuj użytkownika, ", 3);
+        ModelAndView modelAndView = quickModelAndView("admin/usersEdit", "Edytuj użytkownika, ", 3);
         User user = userService.findUserByCardnumber(cardnumber);
         if (user == null) {
             modelAndView.addObject("exist", false);
@@ -147,196 +122,146 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users/edit/{path}", method = RequestMethod.POST)
-    public ModelAndView postAdminUsersEdit(@Valid User user, @PathVariable("path") String path) {
-        ModelAndView modelAndView = quickModelAndView("adminUsersEdit", "Edytuj użytkownika, ", 3);
-        User existingUser = userService.findUserByCardnumber(path);
-        existingUser.setName(user.getName());
-        existingUser.setLastName(user.getLastName());
-        existingUser.setActive(user.getActive());
-        userService.editAndSave(existingUser);
+
+    @PostMapping(value = "/admin/users/edit/{path}")
+    public ModelAndView postAdminUsersEdit(@Valid User user, @PathVariable("path") String path, BindingResult bindingResult) {
+        ModelAndView modelAndView = quickModelAndView("admin/usersEdit", "Edytuj użytkownika, ", 3);
+        User existingUser = userService.editUserByCardNumber(path, user);
         modelAndView.addObject("user", existingUser);
         modelAndView.addObject("exist", true);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/book/")
     public ModelAndView getAdminallBook() {
-        ModelAndView modelAndView = quickModelAndView("adminAllBook", "Wszystkie ksiązki", 2);
+        ModelAndView modelAndView = quickModelAndView("admin/allBook", "Wszystkie ksiązki", 2);
         modelAndView.addObject("bookList", bookService.getAllBooks());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user/settings", method = RequestMethod.GET)
+    @GetMapping(value = "/user/settings")
     public ModelAndView getUserSettings() {
-        ModelAndView modelAndView = quickModelAndView("userSettings", "Ustawienia", 1);
+        ModelAndView modelAndView = quickModelAndView("user/settings", "Ustawienia", 1);
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
         modelAndView.addObject("user", user);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user/settings", method = RequestMethod.POST)
+    @PostMapping(value = "/user/settings")
     public ModelAndView postUserSettings(@Valid User user) {
-        ModelAndView modelAndView = quickModelAndView("userSettings", "Ustawienia", 1);
-        User existingUser = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-        user.setActive(1);
-        user.setCardnumber(existingUser.getCardnumber());
-        user.setRoles(existingUser.getRoles());
-        if (user.getPassword() == "") {
-            user.setPassword(existingUser.getPassword());
-        }
-        userService.editAndSave(user);
-        modelAndView.addObject("user", user);
+        ModelAndView modelAndView = quickModelAndView("user/settings", "Ustawienia", 1);
+	    User existingUser = userService.editCurrentUser(user);
+	    modelAndView.addObject("user", existingUser);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user/books", method = RequestMethod.GET)
+    @GetMapping(value = "/user/books")
     public ModelAndView getUserBooks() {
-        ModelAndView modelAndView = quickModelAndView("userBook", "Książki", 1);
+        ModelAndView modelAndView = quickModelAndView("user/book", "Książki", 1);
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-        List<Book> bookList = user.getBooks();
-        modelAndView.addObject("bookList", bookList);
+	    modelAndView.addObject("bookList", user.getBooks());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user/history", method = RequestMethod.GET)
+    @GetMapping(value = "/user/history")
     public ModelAndView getUserHistory() {
-        ModelAndView modelAndView = quickModelAndView("userHistory", "Historia wypożyczeń", 1);
+        ModelAndView modelAndView = quickModelAndView("user/history", "Historia wypożyczeń", 1);
         User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-        List<BorrowHistory> borrowHistories = user.getBorrowHistory();
-        modelAndView.addObject("borrowHistoryList", borrowHistories);
+	    modelAndView.addObject("borrowHistoryList", user.getBorrowHistory());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/borrow/{bookId}", method = RequestMethod.GET)
+    //ToDo
+    @GetMapping(value = "/borrow/{bookId}")
     public ModelAndView getBorrowBook(@PathVariable("bookId") Long bookId) {
-        ModelAndView modelAndView = quickModelAndView("borrowBook", "Wypożycz", 1);
+        ModelAndView modelAndView = quickModelAndView("user/borrowBook", "Wypożycz", 1);
         modelAndView.addObject("navigation", getNavigationWithRole().getNavigation(1));
-        String role = this.role();
-        if (role.equals("USER")) {
-            Book book = bookService.getById(bookId);
-            if (book.getOwnerid() == null) {
-                User user = userService.findUserByCardnumber(SecurityContextHolder.getContext().getAuthentication().getName());
-                BorrowHistory borrowHistory = new BorrowHistory();
-                java.util.Date date = new java.util.Date();
-                borrowHistory.setBorrow_date(new Date(date.getTime()));
-                borrowHistory.setBookborrow(book);
-                borrowHistory.setUserborrow(user);
-                borrowHistory.setId(borrowHistoryService.countHistories() + 1);
-                borrowHistoryService.save(borrowHistory);
-                book.setCurrentBorrowId(Long.toString(borrowHistory.getId()));
-                book.setOwnerid(user);
-                userService.editAndSave(user);
-                bookService.saveBook(book);
-            }
-        }
+        bookService.borrowBook(bookId);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/lend", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/book/lend")
     public ModelAndView getAdminBookLend() {
-        ModelAndView modelAndView = quickModelAndView("adminBookLend", "Wypożyczone ksiązki", 2);
+        ModelAndView modelAndView = quickModelAndView("admin/bookLend", "Wypożyczone ksiązki", 2);
         modelAndView.addObject("bookList", bookService.findAllBorrowBook());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/add", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/book/add")
     public ModelAndView getAdminBookAdd() {
-        ModelAndView modelAndView = quickModelAndView("adminBookAdd", "Dodaj ksiązke", 2);
+        ModelAndView modelAndView = quickModelAndView("admin/bookAdd", "Dodaj ksiązke", 2);
         modelAndView.addObject("book", new Book());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/add", method = RequestMethod.POST)
-    public ModelAndView postAdminBookAdd(@Valid Book book) {
-        ModelAndView modelAndView = quickModelAndView("adminBookAddPost", "Dodaj ksiązke", 2);
-        Book existingBook = bookService.getById(book.getId());
-        if (existingBook == null) {
-            bookService.saveBook(book);
-        }
+
+    @PostMapping(value = "/admin/book/add")
+    public ModelAndView postAdminBookAdd(@Valid Book book, BindingResult bindingResult) {
+        ModelAndView modelAndView = quickModelAndView("admin/bookAddPost", "Dodaj ksiązke", 2);
+	    bookService.addBook(book);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/{bookid}", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/book/{bookid}")
     public ModelAndView removeAdminBook(@PathVariable("bookid") long bookid) {
-        ModelAndView modelAndView = quickModelAndView("adminBookRemove", "Usuń ksiązke", 2);
+        ModelAndView modelAndView = quickModelAndView("admin/bookRemove", "Usuń ksiązke", 2);
         Book book = bookService.getById(bookid);
-        if (book.getOwnerid() == null) {
-            bookService.removeBook(book);
-            modelAndView.addObject("tru", "Ksiązke usunięto pomyślni");
-        } else {
-            modelAndView.addObject("error", "Ksiązka jest wypożyczona i nie można jej usunąć!");
-        }
+	    String result = bookService.removeBook(book);
         modelAndView.addObject("userList", userService.findAllUsers());
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/edit/{bookid}", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/book/edit/{bookid}")
     public ModelAndView getAdminBookEdit(@PathVariable("bookid") long bookid) {
         Book book = bookService.getById(bookid);
-        ModelAndView modelAndView = quickModelAndView("adminBookEdit", "Edytuj ksiązke '" + book.getName() + "'", 3);
+        ModelAndView modelAndView = quickModelAndView("admin/bookEdit", "Edytuj ksiązke '" + book.getName() + "'", 3);
         modelAndView.addObject("book", book);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/edit/{bookid}", method = RequestMethod.POST)
-    public ModelAndView postAdminBookEdit(@Valid Book bookSave, @PathVariable("bookid") long bookid) {
-        ModelAndView modelAndView = quickModelAndView("adminBookEdit", "Edytuj ksiązke '" + bookSave.getName() + "'", 3);
-        bookSave.setId(bookid);
-        bookService.saveBook(bookSave);
-        Book book = bookService.getById(bookid);
+
+    @PostMapping(value = "/admin/book/edit/{bookid}")
+    public ModelAndView postAdminBookEdit(@Valid Book bookSave, @PathVariable("bookid") long bookid, BindingResult bindingResult) {
+        ModelAndView modelAndView = quickModelAndView("admin/bookEdit", "Edytuj ksiązke '" + bookSave.getName() + "'", 3);
+        System.out.println(bookSave);
+        Book book = bookService.editBookAndSave(bookSave, bookid);
         modelAndView.addObject("book", book);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/book/edit/", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/book/edit/")
     public ModelAndView getAdminBookEditFind() {
-        ModelAndView modelAndView = quickModelAndView("adminBookEditFind", "Szukaj ksiązke", 3);
-        modelAndView.addObject("string", new SerString());
-        return modelAndView;
+        return quickModelAndView("admin/bookEditFind", "Szukaj ksiązke", 3);
     }
 
-    @RequestMapping(value = "/admin/book/edit/", method = RequestMethod.POST)
-    public ModelAndView postAdminBookEditFind(@Valid SerString string) {
-        if (bookService.getById(Long.parseLong(string.getString())) != null) {
-            return new ModelAndView("redirect:" + string.getString());
+    @PostMapping(value = "/admin/book/edit/")
+    public ModelAndView postAdminBookEditFind(@Valid String string) {
+        if (bookService.getById(Long.parseLong(string)) != null) {
+            return new ModelAndView("redirect:" + string);
         }
-        ModelAndView modelAndView = quickModelAndView("adminBookEditFind", "Szukaj ksiązke", 3);
-        modelAndView.addObject("string", new SerString());
+        ModelAndView modelAndView = quickModelAndView("admin/bookEditFind", "Szukaj ksiązke", 3);
         modelAndView.addObject("error", "Brak książki o podanym id!");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users/edit/", method = RequestMethod.GET)
+    @GetMapping(value = "/admin/users/edit/")
     public ModelAndView getUsersBookEditFind() {
-        ModelAndView modelAndView = quickModelAndView("adminBookEditFind", "Szukaj użytkownika", 3);
-        modelAndView.addObject("string", new SerString());
-        return modelAndView;
+	    return quickModelAndView("adminBookEditFind", "Szukaj użytkownika", 3);
     }
 
-    @RequestMapping(value = "/admin/users/edit/", method = RequestMethod.POST)
-    public ModelAndView postUsersBookEditFind(@Valid SerString string) {
-        if (userService.findUserByCardnumber(string.getString()) != null) {
-            return new ModelAndView("redirect:" + string.getString());
+    @PostMapping(value = "/admin/users/edit/")
+    public ModelAndView postUsersBookEditFind(@Valid String string) {
+        if (userService.findUserByCardnumber(string) != null) {
+            return new ModelAndView("redirect:" + string);
         }
-        ModelAndView modelAndView = quickModelAndView("adminBookEditFind", "Szukaj użytkownika", 3);
-        modelAndView.addObject("string", new SerString());
+        ModelAndView modelAndView = quickModelAndView("admin/bookEditFind", "Szukaj użytkownika", 3);
         modelAndView.addObject("error", "Brak Użytkownika o podanym id!");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin/users/active/{path}", method = RequestMethod.GET)
-    public ModelAndView postAdminUserActiveEdit(@PathVariable("path") String path) {
-        ModelAndView modelAndView = quickModelAndView("adminUserActive", "Edycja użytkownika", 3);
-        User user = userService.findUserByCardnumber(path);
-        if (user.getActive() == 1) {
-            user.setActive(0);
-            modelAndView.addObject("active", "Użytkownik został wyłączony");
-        } else {
-            user.setActive(1);
-            modelAndView.addObject("active", "Użytkownik został włączony");
-        }
-        userService.editAndSave(user);
-        return modelAndView;
-    }
+	@GetMapping(value = "/admin/users/active/{path}")
+    public ModelAndView postAdminUserActiveEdit(@PathVariable("path") String userId) {
+        userService.activeUser(userId);
+        return quickModelAndView("admin/userActive", "Edycja użytkownika", 3);
+	}
 }

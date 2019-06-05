@@ -10,7 +10,7 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
             <input type="text" name="cardnumber" th:placeholder="CardNumber"
             /> <br/>
@@ -22,11 +22,18 @@
 </nav>
 <section>
     <form  action="#" method="post" th:object="${book}" role="form" >
-        <label>ID</label><label th:text="${book.id}"></label><br/>
-        <input type="text"  placeholder="Autor"  th:field="*{author}" required="required"/><br/>
-        <input type="text"  placeholder="Nazwa"  th:field="*{name}" required="required"/><br/>
-        <input type="text"  placeholder="Opis"  th:field="*{description}" required="required"/><br/>
-        <input type="text"  placeholder="Rok"  th:field="*{year}" required="required"/><br/>
+        <label>Title</label><br/>
+        <input placeholder="Title" required="required" th:field="*{name}" type="text"/><br/>
+        <label>Isbn</label><br/>
+        <input placeholder="Isbn" required="required" th:field="*{isbn}" type="text"/><br/>
+        <label>Author</label><br/>
+        <input placeholder="Author" required="required" th:field="*{author}" type="text"/><br/>
+        <label>Description</label><br/>
+        <input placeholder="Description" required="required" th:field="*{description}" type="text"/><br/>
+        <label>Page Amount</label><br/>
+        <input placeholder="Page amount" required="required" th:field="*{pageAmount}" type="text"/><br/>
+        <label>Relase Date</label><br/>
+        <input placeholder="Relase Date" required="required" th:field="*{releaseDate}" type="date"/><br/>
         <button type="submit" >Zmień</button>
     </form>
 </section>

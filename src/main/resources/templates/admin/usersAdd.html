@@ -4,14 +4,13 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/book.css}"/>
-    <meta http-equiv="Refresh" content="2; url=../"/>
     <title th:text="${title}"></title>
 </head>
 <body>
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
             <input type="text" name="cardnumber" th:placeholder="CardNumber"
             /> <br/>
@@ -22,7 +21,16 @@
     </div>
 </nav>
 <section>
-    <h1 th:text="${active}"></h1>
+    <form action="#" method="post" role="form" th:action="@{/admin/users/add}" th:object="${user}">
+        <h2 th:if="${error}">Istnieje użytkownik o takim numerze karty!</h2>
+        <label>Card number</label><br/>
+        <input placeholder="Numer Karty" th:field="*{cardNumber}" type="text"/><br/>
+        <label>Name</label><br/>
+        <input placeholder="Name" th:field="*{name}" type="text"/><br/>
+        <label>Last name</label><br/>
+        <input placeholder="Last name" th:field="*{lastName}" type="text"/><br/>
+        <button type="submit">Dodaj</button>
+    </form>
 </section>
 </body>
 

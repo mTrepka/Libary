@@ -10,7 +10,7 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
             <input type="text" name="cardnumber" th:placeholder="CardNumber"
             /> <br/>
@@ -27,6 +27,7 @@
             <td>Tytuł</td>
             <td>Autor</td>
             <td>Data wypożyczenia</td>
+            <td>Status</td>
             <td>Numer Karty</td>
         </tr>
         <tr th:each="currentBook, stat :${bookList}">
@@ -34,14 +35,10 @@
                 <td th:text="${currentBook.id}"></td>
                 <td th:text="${currentBook.name}">Tytul</td>
                 <td th:text="${currentBook.author}">Autor</td>
-                <div th:each="currentBorrow, stat :${currentBook.bookborrow}">
-                    <div th:switch="${currentBorrow.id}">
-                        <div th:case="${currentBook.currentBorrowId}">
-                            <td th:text="${currentBorrow.borrow_date}"></td>
-                            <td th:text="${currentBorrow.userborrow.cardnumber}"></td>
-                        </div>
-                    </div>
-                </div>
+                <td th:text="${currentBook.currentBorrow.borrow_date}">Autor</td>
+                <td th:text="${currentBook.currentBorrow.status}">Autor</td>
+                <td th:text="${currentBook.currentBorrow.userCardNumber}">Autor</td>
+
             </div>
         </tr>
     </table>

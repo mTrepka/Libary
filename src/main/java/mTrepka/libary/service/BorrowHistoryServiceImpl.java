@@ -1,6 +1,7 @@
 package mTrepka.libary.service;
 
 
+import lombok.RequiredArgsConstructor;
 import mTrepka.libary.domain.BorrowHistory;
 import mTrepka.libary.repository.BorrowHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,9 @@ import java.util.List;
  * Created by Mario on 2017-07-17.
  */
 @Service
+@RequiredArgsConstructor
 public class BorrowHistoryServiceImpl implements BorrowHistoryService {
-    @Autowired
-    private BorrowHistoryRepository borrowHistoryRepository;
+	private final BorrowHistoryRepository borrowHistoryRepository;
 
     @Override
     public List<BorrowHistory> getAllHistory() {

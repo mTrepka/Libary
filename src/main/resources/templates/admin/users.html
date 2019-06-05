@@ -10,7 +10,7 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
             <input type="text" name="cardnumber" th:placeholder="CardNumber"
             /> <br/>
@@ -33,7 +33,7 @@
             <td>Stan Konta</td>
         </tr>
         <tr th:each="current, stat :${userList}">
-            <td th:text="${current.cardnumber}">aha</td>
+            <td th:text="${current.cardNumber}">aha</td>
             <td th:text="${current.name}">aha</td>
             <td th:text="${current.lastName}">ha</td>
             <td th:text="${current.active}">ha</td>
@@ -43,11 +43,11 @@
                 </div>
             </td>
             <td>Reset</td>
-                <td><a th:href="${current.cardnumber}"><img th:src="@{/images/remove.jpg}" width="16px"/></a>
-                    <a th:href="@{'edit/'+ ${current.cardnumber}}"><img th:src="@{/images/edit.png}" width="16px"/></a>
+            <td><a th:href="${current.cardNumber}"><img th:src="@{/images/remove.jpg}" width="16px"/></a>
+                <a th:href="@{'edit/'+ ${current.cardNumber}}"><img th:src="@{/images/edit.png}" width="16px"/></a>
                 </td>
             <td th:switch="${current.active}">
-                <a th:href="@{'active/'+ ${current.cardnumber}}">
+                <a th:href="@{'active/'+ ${current.cardNumber}}">
                     <div th:case="0">Aktywuj</div>
                     <div th:case="1">Wyłącz</div>
                 </a>

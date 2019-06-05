@@ -10,9 +10,9 @@
 <nav>
     <h2>Menu</h2>
     <div th:utext="${navigation}"></div>
-    <div th:if="${form} == true">
+    <div th:if="${form} == false">
         <form th:action="@{/login}" method="POST">
-            <input type="text" name="cardnumber" th:placeholder="CardNumber"
+            <input name="cardNumber" th:placeholder="CardNumber" type="text"
             /> <br/>
             <input type="password" th:placeholder="Password"
                    name="password"/> <br/>
@@ -24,7 +24,7 @@
 <div th:switch="${exist}">
     <div th:case="true">
     <form  action="#" method="post" th:object="${user}" role="form" >
-        <label>ID</label><label th:text="${user.cardnumber}" th:field="*{cardnumber}"></label><br/>
+        <label>ID</label><label th:field="*{cardNumber}" th:text="${user.cardNumber}"></label><br/>
         <input type="text"  placeholder="Name"  th:field="*{name}" required="required"/><br/>
         <input type="text"  placeholder="Nazwisko"  th:field="*{lastName}" required="required"/><br/>
         <input type="text"  placeholder="Aktywny"  th:field="*{active}" required="required"/><br/>
